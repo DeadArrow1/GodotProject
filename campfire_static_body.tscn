@@ -1,0 +1,183 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdjfc7djfjec3"]
+
+[ext_resource type="Texture2D" uid="uid://d31efrtxcmoh7" path="res://LitCampfireNoFlame.png" id="1_oxl3u"]
+[ext_resource type="Texture2D" uid="uid://ct86tdshslpye" path="res://universalShadowMoreBlurry.png" id="2_6uie4"]
+[ext_resource type="Texture2D" uid="uid://dtqgssn7kryux" path="res://flame.png" id="3_an3j0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rab2j"]
+radius = 235.213
+
+[sub_resource type="Animation" id="Animation_lpxxv"]
+resource_name = "CampfireGlow"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Campfire/CampfireGlow:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.894118, 0.52549, 0.168627, 0.286275), Color(0.819608, 0.435294, 0.211765, 0.419608), Color(0.894118, 0.52549, 0.168627, 0.360784), Color(0.894118, 0.52549, 0.168627, 0.513726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Campfire/Flame1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Campfire/Flame2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Campfire/Flame3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Campfire/Flame4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Campfire/Flame5:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Campfire/CamfireLightReflect:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.894118, 0.52549, 0.168627, 0.27451), Color(0.894118, 0.52549, 0.168627, 0.282353), Color(0.894118, 0.52549, 0.168627, 0.427451), Color(0.894118, 0.52549, 0.168627, 0.172549)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuf8k"]
+_data = {
+"CampfireGlow": SubResource("Animation_lpxxv")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4cf8y"]
+animation = &"CampfireGlow"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6fonf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f21xt"]
+states/CampfireGlow/node = SubResource("AnimationNodeAnimation_4cf8y")
+states/CampfireGlow/position = Vector2(362, 100)
+transitions = ["Start", "CampfireGlow", SubResource("AnimationNodeStateMachineTransition_6fonf")]
+
+[node name="CampfireStaticBody" type="StaticBody2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -110)
+shape = SubResource("CircleShape2D_rab2j")
+
+[node name="Campfire" type="Sprite2D" parent="."]
+position = Vector2(-20, -310)
+texture = ExtResource("1_oxl3u")
+
+[node name="CampfireGlow" type="Sprite2D" parent="Campfire"]
+self_modulate = Color(0.850494, 0.472682, 0.193883, 0.364338)
+show_behind_parent = true
+z_index = -1
+position = Vector2(20, 300)
+scale = Vector2(3.37374, 3.54084)
+texture = ExtResource("2_6uie4")
+
+[node name="CamfireLightReflect" type="Sprite2D" parent="Campfire"]
+self_modulate = Color(0.894118, 0.52549, 0.168627, 0.279102)
+z_index = 1
+position = Vector2(20, 340)
+scale = Vector2(7.3458, 7.8129)
+texture = ExtResource("2_6uie4")
+
+[node name="Flame1" type="Sprite2D" parent="Campfire"]
+position = Vector2(-20, 20)
+texture = ExtResource("3_an3j0")
+
+[node name="Flame2" type="Sprite2D" parent="Campfire"]
+visible = false
+position = Vector2(10, 50)
+scale = Vector2(0.8, 0.8)
+skew = 0.111701
+texture = ExtResource("3_an3j0")
+flip_h = true
+
+[node name="Flame3" type="Sprite2D" parent="Campfire"]
+visible = false
+position = Vector2(29.9999, 50)
+scale = Vector2(0.8, 0.8)
+skew = 0.111701
+texture = ExtResource("3_an3j0")
+
+[node name="Flame4" type="Sprite2D" parent="Campfire"]
+visible = false
+position = Vector2(-9.99963, 30.0001)
+scale = Vector2(0.731959, 1.01181)
+texture = ExtResource("3_an3j0")
+
+[node name="Flame5" type="Sprite2D" parent="Campfire"]
+visible = false
+position = Vector2(-50, 9.99998)
+scale = Vector2(1.10567, 1.23491)
+skew = -0.237365
+texture = ExtResource("3_an3j0")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vuf8k")
+}
+tree_root = SubResource("AnimationNodeStateMachine_f21xt")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vuf8k")
+}

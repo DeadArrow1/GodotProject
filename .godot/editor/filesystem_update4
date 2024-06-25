@@ -1,0 +1,14 @@
+res://main_game_2d_node.tscn
+res://player.tscn
+res://skeleton_warrior.tscn
+res://dummy_body.tscn
+res://interface.tscn
+res://interface.gd
+res://player.gd
+res://main_game_2d_node.gd
+res://Castle.tscn
+res://campfire_static_body.tscn
+res://tree_texture_1.tscn
+res://tree_texture_2.tscn
+res://tree_texture_3.tscn
+res://tree_1_static_node.tscn

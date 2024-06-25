@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://de7utiv60rgw2"]
+
+[ext_resource type="Texture2D" uid="uid://cq4v46cn2xf6v" path="res://castle.png" id="1_0tshi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.207843, 0.207843, 0.207843, 1)
+position = Vector2(10, -453)
+texture = ExtResource("1_0tshi")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-302, -1, -480, 13, -460, -34, -417, -65, -402, -125, -379, -985, 574, -1021, 533, -51, 316, 24, 230, 32, 186, 20, 206, -18, 170, -17, 115, -7, 14, -23, -38, -18, -164, -18)

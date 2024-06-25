@@ -1,0 +1,895 @@
+[gd_scene load_steps=43 format=3 uid="uid://cdeyqc0j7jgsn"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_rqycm"]
+[ext_resource type="PackedScene" uid="uid://ct4rdvt6hkwm3" path="res://knight.tscn" id="1_twjs5"]
+[ext_resource type="Texture2D" uid="uid://cbxkxs5tt3cee" path="res://Torso.png" id="2_rbsuu"]
+[ext_resource type="Texture2D" uid="uid://cgvkxojantchd" path="res://LeftUpperArm.png" id="3_xh7fi"]
+[ext_resource type="Texture2D" uid="uid://dr7fgkxds3ur3" path="res://LeftLowerArm.png" id="4_dkhgm"]
+[ext_resource type="Texture2D" uid="uid://bgs2fd7yq2dqg" path="res://RightUpperLeg.png" id="5_jpo3r"]
+[ext_resource type="Texture2D" uid="uid://bvo3yp8nu8gu7" path="res://RightLowerLeg.png" id="6_ogfrm"]
+[ext_resource type="Texture2D" uid="uid://bea1d8pcp31bn" path="res://LeftLowerLeg.png" id="7_rgr5j"]
+[ext_resource type="Texture2D" uid="uid://bgs8ustlp78ux" path="res://LeftUpperLeg.png" id="8_3d4id"]
+[ext_resource type="Texture2D" uid="uid://b6dgmcx3tdlj2" path="res://Head.png" id="9_xqry6"]
+[ext_resource type="Texture2D" uid="uid://d2h2xmcxeigcy" path="res://RightUpperArm.png" id="10_kv4oh"]
+[ext_resource type="Texture2D" uid="uid://bylp1oq8k4yvw" path="res://RightLowerArm.png" id="11_jmk8y"]
+[ext_resource type="Texture2D" uid="uid://ccrqkl3ipsty1" path="res://sword.png" id="12_t64ja"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lqejo"]
+radius = 59.0085
+
+[sub_resource type="Animation" id="Animation_vv20i"]
+resource_name = "AttackSequence1Animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, -1.51262, -0.174533, -0.349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(108, -11), Vector2(30, -70), Vector2(90, -143.333), Vector2(99, -50), Vector2(99, -50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -2.23402, -1.48935]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-107, -16), Vector2(42.6, -99.2), Vector2(20, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightNew/Colorizer/Torso/Sword:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 320), Vector2(180, 50), Vector2(180, -170), Vector2(30, -280), Vector2(-70, -220), Vector2(20, -330), Vector2(100, -300), Vector2(250, -230), Vector2(380, -150), Vector2(430, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KnightNew/Colorizer/Torso/Sword:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.349066, -1.5708, -2.44346, -3.40339, -4.36332, -3.49066, -3.14159, -2.44346, -1.74533, -1.0472]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KnightNew/Colorizer/Torso/Sword:z_index")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, -2, -9]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-60, 160), Vector2(30, 150), Vector2(-50, 150)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.872665, -1.22173, -1.5708, -1.0472, -1.22173, -0.174533, -0.349066]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(60, 140), Vector2(30, 180), Vector2(70, 150), Vector2(110, 100), Vector2(80, 80), Vector2(80, 90), Vector2(40, 80), Vector2(-30, 60)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("KnightNew/Colorizer/Torso/Head:z_index")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_g0k8u"]
+resource_name = "idleAnimation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightNew/Colorizer/Torso:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, -644), Vector2(-17, -650), Vector2(-17, -644)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(108, -11), Vector2(108, -15), Vector2(108, -11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-107, -16), Vector2(-107, -20), Vector2(-107, -16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(87, 239), Vector2(87, 245), Vector2(87, 239)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-45, 233), Vector2(-45, 239), Vector2(-45, 233)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegMoving:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegIdle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("KnightNew/Colorizer/Torso:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, 160)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, 140)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg/LeftLowerLeg:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg/LeftLowerLeg:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 253)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("KnightNew/Colorizer/Torso/Sword:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -20)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("KnightNew/Colorizer/Torso/Sword:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.261799]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("KnightNew/Colorizer/Torso/Sword:z_index")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-9]
+}
+
+[sub_resource type="Animation" id="Animation_ibyjn"]
+resource_name = "runNewAnimation"
+
+[sub_resource type="Animation" id="Animation_mt67a"]
+resource_name = "runAnimation"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegMoving:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegIdle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.0349066, 0.349066, -0.0349066]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, -20), Vector2(100, -30)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, -20), Vector2(-100, -20)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.0472, -1.39626, -1.0472]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("KnightNew/Colorizer/Torso/RightUpperArm/RightLowerArm:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 140)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.698132, -0.523599, -0.698132]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperArm/LeftLowerArm:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(80, 100), Vector2(80, 120), Vector2(80, 120)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("KnightNew/Colorizer/Torso:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, -648.554), Vector2(-17, -655), Vector2(-17, -648.554)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("KnightNew/Colorizer/Torso:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.174533, 0.139626]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0472, 0.523599, -0.872665, 1.0472]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(85, 240), Vector2(30, 240), Vector2(160, 200), Vector2(85, 240)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg/LeftLowerLeg:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, 0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("KnightNew/Colorizer/Torso/LeftUpperLeg/LeftLowerLeg:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 253), Vector2(-20, 250), Vector2(32, 253)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.39626, -1.0472, 0.349066, -1.39626]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(90, 237.554), Vector2(100, 237.554), Vector2(-45, 237.554), Vector2(90, 237.554)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegMoving:rotation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.523599, 0.523599, 0.698132, 1.0472, 0.523599]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("KnightNew/Colorizer/Torso/RightUpperLeg/RightLowerLegMoving:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-70, 200), Vector2(-80, 273), Vector2(-100, 273), Vector2(-80, 200), Vector2(-70, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mkhl"]
+_data = {
+"AttackSequence1Animation": SubResource("Animation_vv20i"),
+"idleAnimation": SubResource("Animation_g0k8u"),
+"jumpAnimation": SubResource("Animation_ibyjn"),
+"runAnimation": SubResource("Animation_mt67a")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cfr5e"]
+animation = &"AttackSequence1Animation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t06aw"]
+animation = &"AttackSequence1Animation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hlhsb"]
+animation = &"AttackSequence1Animation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2fqt0"]
+animation = &"AttackSequence1Animation"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_q2352"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_cfr5e")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_t06aw")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_hlhsb")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_2fqt0")
+blend_point_3/pos = Vector2(0, -1)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rtxm4"]
+animation = &"idleAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_686jl"]
+animation = &"idleAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmi1e"]
+animation = &"idleAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fhx6n"]
+animation = &"idleAnimation"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ikdcq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rtxm4")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_686jl")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wmi1e")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_fhx6n")
+blend_point_3/pos = Vector2(0, 1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xp3lu"]
+animation = &"runAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m22uj"]
+animation = &"runAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fyfnf"]
+animation = &"runAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tmlly"]
+animation = &"runAnimation"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_rsbse"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_xp3lu")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_m22uj")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_fyfnf")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_tmlly")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jrm5k"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eemfo"]
+advance_mode = 2
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j2b1h"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s4e2y"]
+advance_mode = 2
+advance_condition = &"isMoving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yl7gf"]
+advance_mode = 2
+advance_condition = &"isIdle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2mh28"]
+advance_mode = 2
+advance_condition = &"isAttacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wtlt3"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"isMoving"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vjwbj"]
+states/End/position = Vector2(846, 135)
+states/Start/position = Vector2(169, 135)
+states/attack/node = SubResource("AnimationNodeBlendSpace2D_q2352")
+states/attack/position = Vector2(457, 40)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_ikdcq")
+states/idle/position = Vector2(337, 135)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_rsbse")
+states/walk/position = Vector2(581, 135)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jrm5k"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_eemfo"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_j2b1h"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_s4e2y"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yl7gf"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_2mh28"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_wtlt3")]
+graph_offset = Vector2(-18, -30)
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_rqycm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lqejo")
+
+[node name="Knight" parent="." instance=ExtResource("1_twjs5")]
+visible = false
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7mkhl")
+}
+tree_root = SubResource("AnimationNodeStateMachine_vjwbj")
+anim_player = NodePath("../KnightNew/Colorizer/AnimationPlayer")
+parameters/conditions/isAttacking = false
+parameters/conditions/isIdle = false
+parameters/conditions/isMoving = false
+parameters/attack/blend_position = Vector2(0, 0)
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="KnightNew" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="Colorizer" type="Node2D" parent="KnightNew"]
+
+[node name="Torso" type="Sprite2D" parent="KnightNew/Colorizer"]
+z_index = -1
+position = Vector2(-17, -644)
+texture = ExtResource("2_rbsuu")
+
+[node name="LeftUpperArm" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+z_index = -5
+position = Vector2(108, -11)
+texture = ExtResource("3_xh7fi")
+
+[node name="LeftLowerArm" type="Sprite2D" parent="KnightNew/Colorizer/Torso/LeftUpperArm"]
+z_index = 4
+position = Vector2(60, 140)
+texture = ExtResource("4_dkhgm")
+
+[node name="RightUpperLeg" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+z_index = 1
+position = Vector2(-45, 233)
+texture = ExtResource("5_jpo3r")
+
+[node name="RightLowerLegIdle" type="Sprite2D" parent="KnightNew/Colorizer/Torso/RightUpperLeg"]
+position = Vector2(-45, 265)
+texture = ExtResource("6_ogfrm")
+
+[node name="RightLowerLegMoving" type="Sprite2D" parent="KnightNew/Colorizer/Torso/RightUpperLeg"]
+visible = false
+texture = ExtResource("7_rgr5j")
+
+[node name="LeftUpperLeg" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+position = Vector2(87, 239)
+texture = ExtResource("8_3d4id")
+
+[node name="LeftLowerLeg" type="Sprite2D" parent="KnightNew/Colorizer/Torso/LeftUpperLeg"]
+position = Vector2(32, 253)
+scale = Vector2(0.948745, 0.998334)
+texture = ExtResource("7_rgr5j")
+
+[node name="Head" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+position = Vector2(-3, -174)
+texture = ExtResource("9_xqry6")
+
+[node name="RightUpperArm" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+z_index = 5
+position = Vector2(-107, -16)
+texture = ExtResource("10_kv4oh")
+
+[node name="RightLowerArm" type="Sprite2D" parent="KnightNew/Colorizer/Torso/RightUpperArm"]
+position = Vector2(-60, 160)
+texture = ExtResource("11_jmk8y")
+
+[node name="Sword" type="Sprite2D" parent="KnightNew/Colorizer/Torso"]
+visibility_layer = 9
+z_index = -9
+position = Vector2(0, -20)
+rotation = 0.261799
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_t64ja")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KnightNew/Colorizer"]
+unique_name_in_owner = true
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_7mkhl")
+}
