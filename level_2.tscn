@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhvlsji84grbb"]
+
+[ext_resource type="Script" path="res://level_2.gd" id="1_20vk6"]
+[ext_resource type="PackedScene" uid="uid://cdeyqc0j7jgsn" path="res://player.tscn" id="1_qw5f8"]
+[ext_resource type="Texture2D" uid="uid://s32su2kxg5r1" path="res://wall.png" id="6_ghimt"]
+[ext_resource type="PackedScene" uid="uid://bdjfc7djfjec3" path="res://campfire_static_body.tscn" id="8_d76je"]
+[ext_resource type="PackedScene" uid="uid://6cykhroc05l8" path="res://interface.tscn" id="9_8dlph"]
+[ext_resource type="PackedScene" uid="uid://b6sne32qhuwvw" path="res://skeleton_warrior.tscn" id="11_d8jco"]
+
+[sub_resource type="Curve2D" id="Curve2D_l146b"]
+
+[node name="Level2" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_20vk6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.0270833
+offset_left = -860.0
+offset_top = -648.0
+offset_right = 2645.0
+offset_bottom = 1460.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="player" parent="." groups=["Player"] instance=ExtResource("1_qw5f8")]
+unique_name_in_owner = true
+position = Vector2(-710.442, 507.975)
+collision_layer = 5
+
+[node name="Path2D" type="Path2D" parent="player"]
+curve = SubResource("Curve2D_l146b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="player/Path2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -26
+anchors_preset = -1
+anchor_left = 0.0177083
+anchor_right = 0.0177083
+offset_left = -825.0
+offset_top = 346.0
+offset_right = 2535.0
+offset_bottom = 689.0
+color = Color(0.113725, 0.121569, 0.109804, 1)
+
+[node name="CampfireStaticBody" parent="." instance=ExtResource("8_d76je")]
+position = Vector2(-544.734, 443.83)
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="Interface" parent="InterfaceLayer" instance=ExtResource("9_8dlph")]
+unique_name_in_owner = true
+z_index = 1000
+offset_left = 84.0
+offset_top = 860.0
+offset_right = 124.0
+offset_bottom = 900.0
+
+[node name="SkeletonWarrior" parent="." instance=ExtResource("11_d8jco")]
+position = Vector2(220.9, 521.07)
+
+[node name="SkeletonWarrior2" parent="." instance=ExtResource("11_d8jco")]
+position = Vector2(806.164, 465.571)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Walls"]
+z_index = -1
+
+[node name="Wall" type="Sprite2D" parent="Walls/Node2D"]
+position = Vector2(-652, 73)
+texture = ExtResource("6_ghimt")
+
+[node name="Wall2" type="Sprite2D" parent="Walls/Node2D"]
+position = Vector2(-308, 73)
+texture = ExtResource("6_ghimt")
+
+[node name="Wall3" type="Sprite2D" parent="Walls/Node2D"]
+position = Vector2(35, 73)
+texture = ExtResource("6_ghimt")
+
+[node name="Wall4" type="Sprite2D" parent="Walls/Node2D"]
+position = Vector2(378.879, 73.1803)
+texture = ExtResource("6_ghimt")
+
+[node name="Wall5" type="Sprite2D" parent="Walls/Node2D"]
+position = Vector2(722.587, 73.3142)
+texture = ExtResource("6_ghimt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-826, 524, -825, 348, 894, 345, 893, 208, -931, 234, -939, 839, 926, 850, 921, 693, -826, 691)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

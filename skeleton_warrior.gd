@@ -14,7 +14,11 @@ var dmgTakenRecord=0
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var animation_tree2 : AnimationTree = $AnimationTree2
 
-@onready var player = get_node("/root/Root/player")
+@onready var root = get_tree().get_root()
+@onready var current_scene = root.get_child(root.get_child_count() - 1)
+
+
+@onready var player = get_node("/root/"+current_scene.name+"/player")
 
 signal health_changed
 
@@ -29,6 +33,8 @@ func GiveXP():
 	return XP_yield
 
 func _ready():
+	
+	
 	%ProgressBar.max_value=health
 	animation_tree.active=true
 	animation_tree2.active=true
