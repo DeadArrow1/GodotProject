@@ -1,7 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://6cykhroc05l8"]
+[gd_scene load_steps=26 format=3 uid="uid://6cykhroc05l8"]
 
 [ext_resource type="Texture2D" uid="uid://b6dgmcx3tdlj2" path="res://Head.png" id="1_6u6at"]
 [ext_resource type="Script" path="res://interface.gd" id="1_jgc4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anfaa"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qbs1"]
+bg_color = Color(0.278431, 0.203922, 0.0117647, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_640nx"]
 bg_color = Color(0, 0, 0, 1)
@@ -10,10 +16,118 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(0.933333, 0.721569, 0.282353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pks3g"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bxuh"]
 bg_color = Color(0.407843, 0, 0.0509804, 1)
+
+[sub_resource type="Animation" id="Animation_i742i"]
+resource_name = "HealthChange"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HealthChangeLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HealthChangeLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"setHPChangedParameter"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cq5wo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%HealthChangeLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%HealthChangeLabel:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4fh3"]
+_data = {
+"HealthChange": SubResource("Animation_i742i"),
+"RESET": SubResource("Animation_cq5wo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w1xmh"]
+animation = &"HealthChange"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_0153h"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_w1xmh")
+blend_point_0/pos = Vector2(0, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7jmlt"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xxd6k"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_7jmlt")
+blend_point_0/pos = Vector2(0, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o64iy"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_87feq"]
+advance_mode = 2
+advance_condition = &"HPChanged"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_66mau"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1ce20"]
+states/HPChange/node = SubResource("AnimationNodeBlendSpace2D_0153h")
+states/HPChange/position = Vector2(477, 146)
+states/Reset/node = SubResource("AnimationNodeBlendSpace2D_xxd6k")
+states/Reset/position = Vector2(345, 45)
+transitions = ["Start", "Reset", SubResource("AnimationNodeStateMachineTransition_o64iy"), "Reset", "HPChange", SubResource("AnimationNodeStateMachineTransition_87feq"), "HPChange", "Reset", SubResource("AnimationNodeStateMachineTransition_66mau")]
 
 [sub_resource type="Animation" id="Animation_pwosd"]
 length = 0.001
@@ -174,12 +288,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.607843)
 
+[node name="HealthTakenBar" type="ProgressBar" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 51.0
+offset_top = 48.0
+offset_right = 830.0
+offset_bottom = 78.0
+theme_override_styles/background = SubResource("StyleBoxFlat_anfaa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6qbs1")
+value = 80.0
+show_percentage = false
+
 [node name="BoxContainer" type="BoxContainer" parent="ColorRect"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 2.0
-offset_right = 827.0
-offset_bottom = 100.0
+offset_left = 51.0
+offset_top = -3.0
+offset_right = 830.0
+offset_bottom = 95.0
 alignment = 1
 vertical = true
 
@@ -209,6 +335,43 @@ theme_override_styles/background = SubResource("StyleBoxFlat_pks3g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4bxuh")
 value = 40.0
 show_percentage = false
+
+[node name="HealthChangeLabel" type="Label" parent="ColorRect/BoxContainer/HealthBar"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -13.0
+offset_right = 24.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.775289, 0.138975, 0.154376, 1)
+text = "-10
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+root_node = NodePath("../../btnSkillPoint/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_i4fh3")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="ColorRect"]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/../../btnSkillPoint/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_i4fh3")
+}
+tree_root = SubResource("AnimationNodeStateMachine_1ce20")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/HPChanged = false
+parameters/HPChange/blend_position = Vector2(0, 0)
+parameters/Reset/blend_position = Vector2(0, 0)
 
 [node name="UsePrompt" type="Label" parent="."]
 visible = false
@@ -249,3 +412,5 @@ text = "1
 libraries = {
 "": SubResource("AnimationLibrary_27rjj")
 }
+
+[connection signal="value_changed" from="ColorRect/BoxContainer/HealthBar" to="." method="_on_health_bar_value_changed"]

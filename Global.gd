@@ -2,14 +2,14 @@ extends Node
 
 var current_scene = null
 
-var maxHealth=100
-var health = 50
-var XP=0
-var XPlevelUP=100
-var armor=10
-var level=1
-var attack=30
-var skillPointCount=0
+var maxHealth
+var health
+var XP
+var XPlevelUP
+var armor
+var level
+var attack
+var skillPointCount
 
 
 

@@ -164,6 +164,9 @@ func _on_sword_hit_body_entered(body):
 func _on_hit_box_hit_taken(value):
 	Global.health -= value
 	health_changed.emit(Global.health)
+	
+	if(Global.health <=0):
+		Global.goto_scene("res://game_over_screen.tscn")
 		
 func rest():
 	resting=true
