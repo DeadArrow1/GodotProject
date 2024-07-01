@@ -11,9 +11,7 @@ var level
 var attack
 var skillPointCount
 
-
-
-
+var fifty_hp_acquired
 
 func _ready():
 	var root = get_tree().get_root()

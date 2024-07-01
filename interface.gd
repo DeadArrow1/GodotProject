@@ -6,6 +6,7 @@ var oldHPValue
 func _ready():
 	get_node("ColorRect/AnimationTree").active=true
 	oldHPValue=0
+	get_node("Talent_Tree").set_scale(Vector2(0,0))
 	
 	
 func UpdateHealthBar(value):
@@ -65,3 +66,7 @@ func _on_health_bar_value_changed(value):
 			get_node("ColorRect/HealthTakenBar").set_value(get_node("ColorRect/HealthTakenBar").value-1)
 			
 		
+
+
+func _on_btn_skill_point_pressed():
+	get_node("Talent_Tree").set_scale(Vector2(1,1))

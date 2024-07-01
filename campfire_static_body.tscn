@@ -9,6 +9,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rab2j"]
 radius = 235.213
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4cf8y"]
+animation = &"CampfireGlow"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6fonf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f21xt"]
+states/CampfireGlow/node = SubResource("AnimationNodeAnimation_4cf8y")
+states/CampfireGlow/position = Vector2(362, 100)
+transitions = ["Start", "CampfireGlow", SubResource("AnimationNodeStateMachineTransition_6fonf")]
+
 [sub_resource type="Animation" id="Animation_lpxxv"]
 resource_name = "CampfireGlow"
 length = 1.2
@@ -103,17 +114,6 @@ _data = {
 "CampfireGlow": SubResource("Animation_lpxxv")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4cf8y"]
-animation = &"CampfireGlow"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6fonf"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_f21xt"]
-states/CampfireGlow/node = SubResource("AnimationNodeAnimation_4cf8y")
-states/CampfireGlow/position = Vector2(362, 100)
-transitions = ["Start", "CampfireGlow", SubResource("AnimationNodeStateMachineTransition_6fonf")]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o87h6"]
 radius = 180.0
 height = 1120.0
@@ -131,7 +131,7 @@ position = Vector2(-20, -310)
 texture = ExtResource("1_oxl3u")
 
 [node name="CampfireGlow" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.448418)
+self_modulate = Color(0.894118, 0.52549, 0.168627, 0.480825)
 show_behind_parent = true
 z_index = -1
 position = Vector2(20, 300)
@@ -139,7 +139,7 @@ scale = Vector2(3.37374, 3.54084)
 texture = ExtResource("2_6uie4")
 
 [node name="CamfireLightReflect" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.281396)
+self_modulate = Color(0.894118, 0.52549, 0.168627, 0.227383)
 z_index = 1
 position = Vector2(20, 340)
 scale = Vector2(7.3458, 7.8129)
@@ -166,21 +166,18 @@ skew = 0.111701
 texture = ExtResource("3_an3j0")
 
 [node name="Flame4" type="Sprite2D" parent="Campfire"]
+visible = false
 position = Vector2(-9.99963, 30.0001)
 scale = Vector2(0.731959, 1.01181)
 texture = ExtResource("3_an3j0")
 
 [node name="Flame5" type="Sprite2D" parent="Campfire"]
-visible = false
 position = Vector2(-50, 9.99998)
 scale = Vector2(1.10567, 1.23491)
 skew = -0.237365
 texture = ExtResource("3_an3j0")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vuf8k")
-}
 tree_root = SubResource("AnimationNodeStateMachine_f21xt")
 anim_player = NodePath("../AnimationPlayer")
 

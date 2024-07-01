@@ -2,3 +2,9 @@ res://level_1.tscn
 res://level_2.tscn
 res://interface.tscn
 res://campfire_static_body.tscn
+res://talent_tree.tscn
+res://talent_tree.gd
+res://Global.gd
+res://interface.gd
+res://MainMenu.gd
+res://main_menu.tscn
