@@ -4,32 +4,33 @@ var oldHPValue
 
 	
 func _ready():
-	%AnimationTree.active=true
+	get_node("ColorRect/AnimationTree").active=true
 	oldHPValue=0
 	
 	
 func UpdateHealthBar(value):
-	oldHPValue=%HealthBar.value
+	
+	oldHPValue=get_node("ColorRect/BoxContainer/HealthBar").value
 	get_node("ColorRect/BoxContainer/HealthBar").set_value(value)
 	
-	var healthChange=%HealthBar.value - oldHPValue 
+	var healthChange=get_node("ColorRect/BoxContainer/HealthBar").value - oldHPValue 
 	if(healthChange > 0):
 		var green = Color(0, 0.918, 0)
-		%HealthChangeLabel.set("theme_override_colors/font_color",green)
-		%HealthChangeLabel.text="+"+str(healthChange)
+		get_node("ColorRect/BoxContainer/HealthBar/HealthChangeLabel").set("theme_override_colors/font_color",green)
+		get_node("ColorRect/BoxContainer/HealthBar/HealthChangeLabel").text="+"+str(healthChange)
 	else:
 		var red = Color(0.775, 0.139, 0.154)
-		%HealthChangeLabel.set("theme_override_colors/font_color",red)
-		%HealthChangeLabel.text=str(healthChange)
+		get_node("ColorRect/BoxContainer/HealthBar/HealthChangeLabel").set("theme_override_colors/font_color",red)
+		get_node("ColorRect/BoxContainer/HealthBar/HealthChangeLabel").text=str(healthChange)
 		
-	%AnimationTree["parameters/conditions/HPChanged"] = true
+	get_node("ColorRect/AnimationTree")["parameters/conditions/HPChanged"] = true
 	
 func UpdateXPBar(XPvalue,XPlevelUPvalue):
 	get_node("ColorRect/BoxContainer/ExperienceBar").max_value=XPlevelUPvalue
 	get_node("ColorRect/BoxContainer/ExperienceBar").set_value(XPvalue)
 	
 	
-	%ExperienceNumbers.text=str(XPvalue)+"/"+str(XPlevelUPvalue)
+	get_node("ColorRect/BoxContainer/ExperienceBar/ExperienceNumbers").text=str(XPvalue)+"/"+str(XPlevelUPvalue)
 	
 func ShowUsePrompt(boolValue):
 	get_node("UsePrompt").visible=boolValue
@@ -53,14 +54,14 @@ func ShowBntSkillPoint(show,skillPointCount):
 		get_node("btnSkillPoint/lblFreeSkillPointCount").text=str(skillPointCount)
 
 func setHPChangedParameter(boolvalue):
-	%AnimationTree["parameters/conditions/HPChanged"] = boolvalue
+	get_node("ColorRect/AnimationTree")["parameters/conditions/HPChanged"] = boolvalue
 
 func _on_health_bar_value_changed(value):
 	if(oldHPValue<value):
-		%HealthTakenBar.set_value(value)
+		get_node("ColorRect/HealthTakenBar").set_value(value)
 	if(oldHPValue>value):
-		while(%HealthTakenBar.value > %HealthBar.value):
+		while(get_node("ColorRect/HealthTakenBar").value > get_node("ColorRect/BoxContainer/HealthBar").value):
 			await get_tree().create_timer(0.2).timeout
-			%HealthTakenBar.set_value(%HealthTakenBar.value-1)
+			get_node("ColorRect/HealthTakenBar").set_value(get_node("ColorRect/HealthTakenBar").value-1)
 			
 		

@@ -1,14 +1,4 @@
 res://level_1.tscn
 res://level_2.tscn
-res://player.tscn
-res://skeleton_warrior.tscn
-res://player.gd
-res://campfire_static_body.tscn
-res://campfire_static_body.gd
-res://game_over_screen.tscn
-res://game_over_screen.gd
-res://main_menu.tscn
-res://MainMenu.gd
-res://Global.gd
 res://interface.tscn
-res://interface.gd
+res://campfire_static_body.tscn

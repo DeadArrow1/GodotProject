@@ -38,7 +38,6 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="player" parent="." groups=["Player"] instance=ExtResource("2_p5gjy")]
-unique_name_in_owner = true
 position = Vector2(345.049, 448.764)
 collision_layer = 5
 
@@ -568,7 +567,6 @@ position = Vector2(730, 420)
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
 [node name="Interface" parent="InterfaceLayer" instance=ExtResource("9_ocjsp")]
-unique_name_in_owner = true
 z_index = 1000
 offset_left = 84.0
 offset_top = 860.0
