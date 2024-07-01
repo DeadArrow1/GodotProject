@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719869249
+::res://::1719870840
 AttackArea.gd::GDScript::-1::1719802755::0::1::::<>Area2D<>::
 campfire.png::CompressedTexture2D::1610090138563795016::1719802755::1719802755::1::::<><>::
 campfire_static_body.gd::GDScript::-1::1719802755::0::1::::<>StaticBody2D<>::
@@ -74,7 +74,7 @@ universalShadow.png::CompressedTexture2D::7215218566521567550::1719802755::17198
 universalShadowBlurry.png::CompressedTexture2D::9124249193695519600::1719802755::1719802755::1::::<><>::
 universalShadowMoreBlurry.png::CompressedTexture2D::6176470204971825864::1719802755::1719802755::1::::<><>::
 wall.png::CompressedTexture2D::1322874358355322484::1719802755::1719802755::1::::<><>::
-::res://audio/::1719802755
+::res://audio/::1719869049
 Attack1.mp3::AudioStreamMP3::5123953507178531269::1719802755::1719802755::1::::<><>::
 Attack2.mp3::AudioStreamMP3::5090186955450587356::1719802755::1719802755::1::::<><>::
 Attack3.mp3::AudioStreamMP3::8936319929561618096::1719802755::1719802755::1::::<><>::
