@@ -8,6 +8,7 @@ signal player_present
 
 func _ready():
 	player_present.connect(Global.actionPossible)
+	%FireSound.play()
 
 func _process(_delta):
 	if Input.is_action_pressed("Use"):

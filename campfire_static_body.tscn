@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdjfc7djfjec3"]
+[gd_scene load_steps=13 format=3 uid="uid://bdjfc7djfjec3"]
 
 [ext_resource type="Script" path="res://campfire_static_body.gd" id="1_5l7fh"]
 [ext_resource type="Texture2D" uid="uid://d31efrtxcmoh7" path="res://LitCampfireNoFlame.png" id="1_oxl3u"]
 [ext_resource type="Texture2D" uid="uid://ct86tdshslpye" path="res://universalShadowMoreBlurry.png" id="2_6uie4"]
 [ext_resource type="Texture2D" uid="uid://dtqgssn7kryux" path="res://flame.png" id="3_an3j0"]
+[ext_resource type="AudioStream" uid="uid://dgq72cl58kaeb" path="res://audio/campfire.mp3" id="5_ujlph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rab2j"]
 radius = 235.213
@@ -130,7 +131,7 @@ position = Vector2(-20, -310)
 texture = ExtResource("1_oxl3u")
 
 [node name="CampfireGlow" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.513369)
+self_modulate = Color(0.884386, 0.51371, 0.174261, 0.303689)
 show_behind_parent = true
 z_index = -1
 position = Vector2(20, 300)
@@ -138,14 +139,13 @@ scale = Vector2(3.37374, 3.54084)
 texture = ExtResource("2_6uie4")
 
 [node name="CamfireLightReflect" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.173144)
+self_modulate = Color(0.894118, 0.52549, 0.168627, 0.275534)
 z_index = 1
 position = Vector2(20, 340)
 scale = Vector2(7.3458, 7.8129)
 texture = ExtResource("2_6uie4")
 
 [node name="Flame1" type="Sprite2D" parent="Campfire"]
-visible = false
 position = Vector2(-20, 20)
 texture = ExtResource("3_an3j0")
 
@@ -171,6 +171,7 @@ scale = Vector2(0.731959, 1.01181)
 texture = ExtResource("3_an3j0")
 
 [node name="Flame5" type="Sprite2D" parent="Campfire"]
+visible = false
 position = Vector2(-50, 9.99998)
 scale = Vector2(1.10567, 1.23491)
 skew = -0.237365
@@ -197,6 +198,12 @@ position = Vector2(-1.42109e-13, -50)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o87h6")
 debug_color = Color(0.282353, 0.635294, 0.270588, 0.419608)
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_ujlph")
+max_distance = 500.0
+attenuation = 2.82843
 
 [connection signal="body_entered" from="RestArea" to="." method="_on_rest_area_body_entered"]
 [connection signal="body_exited" from="RestArea" to="." method="_on_rest_area_body_exited"]

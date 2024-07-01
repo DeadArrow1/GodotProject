@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cfac1bc48ky0t" path="res://audio/Attack1.mp3" id="15_kpmq5"]
 [ext_resource type="AudioStream" uid="uid://ceryvuuskn8ia" path="res://audio/Attack2.mp3" id="16_gxrf8"]
 [ext_resource type="AudioStream" uid="uid://d0k25bqc3of6o" path="res://audio/Attack3.mp3" id="17_fxrau"]
-[ext_resource type="AudioStream" uid="uid://douvq8ptia50d" path="res://audio/KnightRun.mp3" id="18_l33nb"]
+[ext_resource type="AudioStream" uid="uid://pju8v2b1wnu1" path="res://audio/run.mp3" id="18_caydb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lqejo"]
 radius = 21.0
@@ -3579,8 +3579,7 @@ volume_db = -20.0
 
 [node name="RunSound" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("18_l33nb")
-volume_db = -30.0
+stream = ExtResource("18_caydb")
 
 [connection signal="current_animation_changed" from="KnightNew/AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
 [connection signal="area_entered" from="KnightNew/SwordHit" to="." method="_on_sword_hit_area_entered"]

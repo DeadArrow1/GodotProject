@@ -4,6 +4,9 @@ var lastDirectionIsRight=true
 
 var resting = false
 var isAttacking=false
+
+var attackComboContinues=false
+
 @onready var animation_tree : AnimationTree = $AnimationTree
 
 signal health_changed
@@ -19,13 +22,6 @@ var direction : Vector2 = Vector2.ZERO
 
 var maxHealth=Global.maxHealth
 
-#var health = Global.health
-#var XP=Global.XP
-#var XPlevelUP=Global.XPlevelUP
-#var armor=Global.armor
-#var level=Global.level
-#var attack=Global.attack
-#var skillPointCount=Global.skillPointCount
 
 func _ready():
 	health_changed.connect(Global._on_player_health_changed)
@@ -52,7 +48,7 @@ func _ready():
 	
 	
 	
-	$KnightNew/SwordHit/CollisionShape2D.set_deferred("disabled", true)
+	$KnightNew/SwordHit/HitArea.set_deferred("disabled", true)
 	
 func _process(delta):
 	update_animation_parameters()
@@ -101,17 +97,29 @@ func update_animation_parameters():
 	if(velocity == Vector2.ZERO):
 		animation_tree["parameters/conditions/isIdle"] = true
 		animation_tree["parameters/conditions/isMoving"] = false
+		
 	else:
 		animation_tree["parameters/conditions/isIdle"] = false 
 		animation_tree["parameters/conditions/isMoving"] = true
-	if(Input.is_action_pressed("attack_basic")):
-		#if(animation_tree["parameters/conditions/isAttacking"]==true):
-			#animation_tree["parameters/conditions/AttackContinues"]==true
-		#else:
-			print("ok attack")
+		
+	if(animation_tree["parameters/conditions/isMoving"] == false):
+		%RunSound.play()
+	
+		
+		
+	if(Input.is_action_just_pressed("attack_basic")):
+		if(isAttacking==true):
+			attackComboContinues=true
+			animation_tree["parameters/conditions/isComboContinuing"]=true
+		else:
 			animation_tree["parameters/conditions/isAttacking"]=true
-	#else:
-		#animation_tree["parameters/conditions/isAttacking"]=false
+	else:
+		animation_tree["parameters/conditions/isAttacking"]=false
+		
+		
+		
+		
+		
 		
 	if(resting):
 		animation_tree["parameters/conditions/isIdle"] = false
@@ -126,6 +134,11 @@ func update_animation_parameters():
 	
 func RootKnight(value):
 	isAttacking=value
+
+func ResetAttackCombo(value):
+	attackComboContinues=value
+	animation_tree["parameters/conditions/isComboContinuing"]=value
+	
 
 func UpdateXP(value):
 	Global.XP=Global.XP+value
@@ -164,6 +177,14 @@ func regeneration(value):
 		health_changed.emit(Global.health)
 func setIsAttackingParameter(boolvalue):
 	animation_tree["parameters/conditions/isAttacking"]=boolvalue
+	
+func playAttackSound(number):
+	if(number==1):
+		%Attack1Sound.play()
+	if(number==2):
+		%Attack2Sound.play()
+	if(number==3):
+		%Attack3Sound.play()
 	
 	
 	
