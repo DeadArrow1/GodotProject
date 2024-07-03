@@ -296,7 +296,7 @@ offset_right = 830.0
 offset_bottom = 78.0
 theme_override_styles/background = SubResource("StyleBoxFlat_anfaa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6qbs1")
-value = 80.0
+value = 1.0
 show_percentage = false
 
 [node name="BoxContainer" type="BoxContainer" parent="ColorRect"]
@@ -313,7 +313,6 @@ custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_640nx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_sybcf")
-value = 30.0
 show_percentage = false
 
 [node name="ExperienceNumbers" type="Label" parent="ColorRect/BoxContainer/ExperienceBar"]
@@ -330,7 +329,7 @@ custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_pks3g")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4bxuh")
-value = 40.0
+value = 1.0
 show_percentage = false
 
 [node name="HealthChangeLabel" type="Label" parent="ColorRect/BoxContainer/HealthBar"]

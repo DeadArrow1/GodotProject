@@ -5,6 +5,8 @@ var lastDirectionIsRight=true
 var resting = false
 var isAttacking=false
 
+var isBlocking=false
+
 var attackComboContinues=false
 
 @onready var animation_tree : AnimationTree = $AnimationTree
@@ -56,7 +58,7 @@ func _process(delta):
 	
 	
 func _physics_process(delta):
-	if(!isAttacking):
+	if(!isAttacking and !isBlocking):
 	
 		direction = Input.get_vector("move_left","move_right","move_up","move_down")
 		
@@ -94,44 +96,63 @@ func _physics_process(delta):
 		move_and_slide()
 	
 func update_animation_parameters():
-	if(velocity == Vector2.ZERO):
-		animation_tree["parameters/conditions/isIdle"] = true
-		animation_tree["parameters/conditions/isMoving"] = false
-		
+	
+	if(Input.is_action_pressed("Block")):
+		isBlocking=true
+		animation_tree["parameters/conditions/isBlocking"]=true
 	else:
-		animation_tree["parameters/conditions/isIdle"] = false 
-		animation_tree["parameters/conditions/isMoving"] = true
+		animation_tree["parameters/conditions/isBlocking"]=false
+		isBlocking=false
+	
+	if(!isBlocking):
+		if(Input.is_action_just_pressed("attack_basic")):
+			if(isAttacking==true):
+				attackComboContinues=true
+				animation_tree["parameters/conditions/isComboContinuing"]=true
+			else:
+				animation_tree["parameters/conditions/isAttacking"]=true
+		else:
+			animation_tree["parameters/conditions/isAttacking"]=false
 		
-	if(animation_tree["parameters/conditions/isMoving"] == false):
-		%RunSound.play()
+		if(Input.is_action_just_pressed("Parry")):
+			animation_tree["parameters/conditions/isParrying"] = true
+		else:
+			animation_tree["parameters/conditions/isParrying"] = false
 	
 		
-		
-	if(Input.is_action_just_pressed("attack_basic")):
-		if(isAttacking==true):
-			attackComboContinues=true
-			animation_tree["parameters/conditions/isComboContinuing"]=true
+	
+		if(velocity == Vector2.ZERO):
+			animation_tree["parameters/conditions/isIdle"] = true
+			animation_tree["parameters/conditions/isMoving"] = false
+			 
+			%RunSound.stop()
+			
 		else:
-			animation_tree["parameters/conditions/isAttacking"]=true
+			animation_tree["parameters/conditions/isIdle"] = false 
+			animation_tree["parameters/conditions/isMoving"] = true
+
+			if(%RunSound.is_playing()==false):
+				%RunSound.play()
+	
+		if(resting):
+			animation_tree["parameters/conditions/isIdle"] = false
+			animation_tree["parameters/conditions/isMoving"] = false
+			animation_tree["parameters/conditions/isResting"] = true
+		else:
+			animation_tree["parameters/conditions/isResting"] = false
+			
+		animation_tree["parameters/idle/blend_position"] = direction
+		animation_tree["parameters/attack/blend_position"] = direction
+		animation_tree["parameters/idle/blend_position"] = direction
+	
 	else:
 		animation_tree["parameters/conditions/isAttacking"]=false
-		
-		
-		
-		
-		
-		
-	if(resting):
-		animation_tree["parameters/conditions/isIdle"] = false
+		animation_tree["parameters/conditions/isComboContinuing"]=false
+		animation_tree["parameters/conditions/isIdle"] = false 
 		animation_tree["parameters/conditions/isMoving"] = false
-		animation_tree["parameters/conditions/isResting"] = true
-	else:
-		animation_tree["parameters/conditions/isResting"] = false
-	animation_tree["parameters/idle/blend_position"] = direction
-	animation_tree["parameters/attack/blend_position"] = direction
-	animation_tree["parameters/idle/blend_position"] = direction
-	
-	
+		isAttacking=false
+		%RunSound.stop()
+
 func RootKnight(value):
 	isAttacking=value
 
@@ -162,11 +183,17 @@ func _on_sword_hit_body_entered(body):
 
 
 func _on_hit_box_hit_taken(value):
-	Global.health -= value
-	health_changed.emit(Global.health)
-	
-	if(Global.health <=0):
-		Global.goto_scene("res://game_over_screen.tscn")
+	if(isBlocking==true):
+		if(lastDirectionIsRight):
+			position += Vector2(-20, 0)
+		else:
+			position += Vector2(20, 0)
+	else:
+		Global.health -= value
+		health_changed.emit(Global.health)
+		
+		if(Global.health <=0):
+			Global.goto_scene("res://game_over_screen.tscn")
 		
 func rest():
 	resting=true

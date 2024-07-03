@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blvk2ibfa64dk"]
+[gd_scene load_steps=16 format=3 uid="uid://blvk2ibfa64dk"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_45q7j"]
 [ext_resource type="PackedScene" uid="uid://cdeyqc0j7jgsn" path="res://player.tscn" id="2_p5gjy"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://b6sne32qhuwvw" path="res://skeleton_warrior.tscn" id="11_4kndd"]
 [ext_resource type="PackedScene" uid="uid://de7utiv60rgw2" path="res://Castle.tscn" id="12_r7dao"]
 [ext_resource type="Script" path="res://LeaveLevel1Area.gd" id="13_ppwc3"]
-
-[sub_resource type="Curve2D" id="Curve2D_2dkal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ysn4v"]
 radius = 27.1662
@@ -39,12 +37,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="player" parent="." groups=["Player"] instance=ExtResource("2_p5gjy")]
 position = Vector2(345.049, 448.764)
-collision_layer = 5
-
-[node name="Path2D" type="Path2D" parent="player"]
-curve = SubResource("Curve2D_2dkal")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="player/Path2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -26

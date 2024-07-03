@@ -2,3 +2,11 @@ res://level_1.tscn
 res://level_2.tscn
 res://interface.tscn
 res://campfire_static_body.tscn
+res://player.tscn
+res://skeleton_warrior.tscn
+res://player.gd
+res://level_2.gd
+res://LeaveLevel1Area.gd
+res://LeaveArea.gd
+res://interface.gd
+res://EncounterStartArea.gd

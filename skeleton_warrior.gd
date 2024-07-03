@@ -41,6 +41,7 @@ func _ready():
 	health_changed.emit(health)
 
 	$SkeletonTexture/AttackHit/AttackArea.set_deferred("disabled", true)
+	$SkeletonTexture/ParryWindow/ParryShape.set_deferred("disabled", true)
 	
 func _process(delta):
 	update_animation_parameters()
@@ -165,3 +166,12 @@ func _on_attack_detection_body_exited(body):
 func resetDmgRecord():
 	dmgTakenRecord=0
 
+
+	
+
+
+func _on_parry_window_get_stun():
+	if(lastDirectionIsRight):
+		position += Vector2(-100, 0)
+	else:
+		position += Vector2(100, 0)

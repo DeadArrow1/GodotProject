@@ -65,3 +65,11 @@ func _on_health_bar_value_changed(value):
 			get_node("ColorRect/HealthTakenBar").set_value(get_node("ColorRect/HealthTakenBar").value-1)
 			
 		
+
+
+func _on_leave_area_show_use_prompt(boolvalue):
+	ShowUsePrompt(boolvalue)
+
+
+func _on_encounter_start_area_show_use_prompt(boolvalue):
+	ShowUsePrompt(boolvalue)

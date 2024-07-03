@@ -131,7 +131,7 @@ position = Vector2(-20, -310)
 texture = ExtResource("1_oxl3u")
 
 [node name="CampfireGlow" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.448418)
+self_modulate = Color(0.880665, 0.509205, 0.176415, 0.310348)
 show_behind_parent = true
 z_index = -1
 position = Vector2(20, 300)
@@ -139,14 +139,13 @@ scale = Vector2(3.37374, 3.54084)
 texture = ExtResource("2_6uie4")
 
 [node name="CamfireLightReflect" type="Sprite2D" parent="Campfire"]
-self_modulate = Color(0.894118, 0.52549, 0.168627, 0.281396)
+self_modulate = Color(0.894118, 0.52549, 0.168627, 0.275926)
 z_index = 1
 position = Vector2(20, 340)
 scale = Vector2(7.3458, 7.8129)
 texture = ExtResource("2_6uie4")
 
 [node name="Flame1" type="Sprite2D" parent="Campfire"]
-visible = false
 position = Vector2(-20, 20)
 texture = ExtResource("3_an3j0")
 
@@ -166,6 +165,7 @@ skew = 0.111701
 texture = ExtResource("3_an3j0")
 
 [node name="Flame4" type="Sprite2D" parent="Campfire"]
+visible = false
 position = Vector2(-9.99963, 30.0001)
 scale = Vector2(0.731959, 1.01181)
 texture = ExtResource("3_an3j0")
