@@ -597,6 +597,18 @@ script = ExtResource("13_ppwc3")
 position = Vector2(50.6646, 27.203)
 shape = SubResource("CircleShape2D_4bl2p")
 
+[node name="SkeletonWarrior4" parent="." instance=ExtResource("11_4kndd")]
+position = Vector2(652, 617)
+
+[node name="SkeletonWarrior5" parent="." instance=ExtResource("11_4kndd")]
+position = Vector2(754, 495)
+
+[node name="SkeletonWarrior6" parent="." instance=ExtResource("11_4kndd")]
+position = Vector2(696, 545)
+
+[node name="SkeletonWarrior7" parent="." instance=ExtResource("11_4kndd")]
+position = Vector2(744, 575)
+
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="XP_changed" from="player" to="." method="_on_player_xp_changed"]
 [connection signal="armor_changed" from="player" to="." method="_on_player_armor_changed"]

@@ -1,0 +1,348 @@
+[gd_scene load_steps=2 format=3 uid="uid://gv2y7gy3p7cv"]
+
+[ext_resource type="Script" path="res://skill_tree.gd" id="1_728y8"]
+
+[node name="Skill_tree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 589.839
+offset_top = -655.298
+offset_right = 589.839
+offset_bottom = -655.298
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_728y8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="Control" type="Control" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(700, 1000)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/Control"]
+self_modulate = Color(0.278431, 0.0470588, 0.443137, 1)
+custom_minimum_size = Vector2(700, 1000)
+layout_mode = 2
+offset_right = 700.0
+offset_bottom = 1000.0
+
+[node name="Button2" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 35.3749
+offset_top = 857.065
+offset_right = 85.3749
+offset_bottom = 907.065
+toggle_mode = true
+
+[node name="Button6" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 243.486
+offset_top = 859.444
+offset_right = 293.486
+offset_bottom = 909.444
+toggle_mode = true
+
+[node name="Button7" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 458.733
+offset_top = 857.065
+offset_right = 508.733
+offset_bottom = 907.065
+toggle_mode = true
+
+[node name="Button8" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 239.918
+offset_top = 754.794
+offset_right = 289.918
+offset_bottom = 804.794
+toggle_mode = true
+
+[node name="Button9" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 40.1317
+offset_top = 755.983
+offset_right = 90.1317
+offset_bottom = 805.983
+toggle_mode = true
+
+[node name="Button10" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 467.057
+offset_top = 761.929
+offset_right = 517.057
+offset_bottom = 811.929
+toggle_mode = true
+
+[node name="Button11" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 514.625
+offset_top = 652.522
+offset_right = 564.625
+offset_bottom = 702.522
+toggle_mode = true
+
+[node name="Button12" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 251.811
+offset_top = 647.765
+offset_right = 301.811
+offset_bottom = 697.765
+toggle_mode = true
+
+[node name="Button13" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 73.4295
+offset_top = 639.441
+offset_right = 123.43
+offset_bottom = 689.441
+toggle_mode = true
+
+[node name="Button14" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 189.972
+offset_top = 574.034
+offset_right = 239.972
+offset_bottom = 624.034
+toggle_mode = true
+
+[node name="Button15" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 346.947
+offset_top = 555.007
+offset_right = 396.947
+offset_bottom = 605.007
+toggle_mode = true
+
+[node name="Button16" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 533.416
+offset_top = 544.927
+offset_right = 583.416
+offset_bottom = 594.927
+toggle_mode = true
+
+[node name="Button17" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 450.261
+offset_top = 445.394
+offset_right = 500.261
+offset_bottom = 495.394
+toggle_mode = true
+
+[node name="Button18" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 423.802
+offset_top = 338.301
+offset_right = 473.802
+offset_bottom = 388.301
+toggle_mode = true
+
+[node name="Button19" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 217.175
+offset_top = 58.5981
+offset_right = 267.175
+offset_bottom = 108.598
+toggle_mode = true
+
+[node name="Button20" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 535.935
+offset_top = 82.5366
+offset_right = 585.935
+offset_bottom = 132.537
+toggle_mode = true
+
+[node name="Button21" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 79.0
+offset_top = 54.0
+offset_right = 129.0
+offset_bottom = 104.0
+toggle_mode = true
+
+[node name="Button22" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 79.0
+offset_top = 54.0
+offset_right = 129.0
+offset_bottom = 104.0
+toggle_mode = true
+
+[node name="Button23" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 213.396
+offset_top = 160.652
+offset_right = 263.396
+offset_bottom = 210.652
+toggle_mode = true
+
+[node name="Button24" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 408.683
+offset_top = 153.092
+offset_right = 458.683
+offset_bottom = 203.092
+toggle_mode = true
+
+[node name="Button25" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 420.023
+offset_top = 61.1179
+offset_right = 470.023
+offset_bottom = 111.118
+toggle_mode = true
+
+[node name="Button26" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 346.947
+offset_top = 71.1973
+offset_right = 396.947
+offset_bottom = 121.197
+toggle_mode = true
+
+[node name="Button27" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 276.786
+offset_top = 246.359
+offset_right = 326.786
+offset_bottom = 296.359
+toggle_mode = true
+
+[node name="Button28" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 117.396
+offset_top = 134.113
+offset_right = 167.396
+offset_bottom = 184.113
+toggle_mode = true
+
+[node name="Button29" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 105.049
+offset_top = 219.42
+offset_right = 155.049
+offset_bottom = 269.42
+toggle_mode = true
+
+[node name="Button30" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 509.135
+offset_top = 348.503
+offset_right = 559.135
+offset_bottom = 398.503
+toggle_mode = true
+
+[node name="Button31" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 285.766
+offset_top = 346.258
+offset_right = 335.766
+offset_bottom = 396.258
+toggle_mode = true
+
+[node name="Button5" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 101.682
+offset_top = 332.789
+offset_right = 151.682
+offset_bottom = 382.789
+toggle_mode = true
+
+[node name="Button3" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 518.115
+offset_top = 439.423
+offset_right = 568.115
+offset_bottom = 489.423
+toggle_mode = true
+
+[node name="Button4" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 285.766
+offset_top = 446.158
+offset_right = 335.766
+offset_bottom = 496.158
+toggle_mode = true
+
+[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_left = 96.0695
+offset_top = 434.933
+offset_right = 146.069
+offset_bottom = 484.933
+toggle_mode = true
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control"]
+layout_mode = 0
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 724.0
+offset_bottom = 66.0
+color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[node name="btnClose" type="Button" parent="VBoxContainer/Control/ColorRect"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 23.0
+offset_right = 255.0
+offset_bottom = 54.0
+text = "Close"
+
+[node name="btnConfirm" type="Button" parent="VBoxContainer/Control/ColorRect"]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 23.0
+offset_right = 699.0
+offset_bottom = 54.0
+text = "Confirm"
+
+[connection signal="pressed" from="VBoxContainer/Control/ColorRect/btnClose" to="." method="_on_btn_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control/ColorRect/btnConfirm" to="." method="_on_btn_confirm_pressed"]

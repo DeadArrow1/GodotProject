@@ -410,3 +410,4 @@ libraries = {
 }
 
 [connection signal="value_changed" from="ColorRect/BoxContainer/HealthBar" to="." method="_on_health_bar_value_changed"]
+[connection signal="pressed" from="btnSkillPoint" to="." method="_on_btn_skill_point_pressed"]
