@@ -50,6 +50,7 @@ func UpdateLevel(value):
 	get_node("ColorRect2/GridContainer/LevelValue").text=str(value)
 	
 func ShowBntSkillPoint(show,skillPointCount):
+	skillPointCount = 1
 	if(skillPointCount>0):
 		get_node("btnSkillPoint").visible=show
 		get_node("btnSkillPoint/lblFreeSkillPointCount").text=str(skillPointCount)

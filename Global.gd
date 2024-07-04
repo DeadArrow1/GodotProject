@@ -81,4 +81,3 @@ func _on_player_xp_changed(XP,XPlevelUP):
 func actionPossible(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
 	Interface.ShowUsePrompt(value)
-

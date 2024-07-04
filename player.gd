@@ -188,6 +188,3 @@ func playAttackSound(number):
 		%Attack2Sound.play()
 	if(number==3):
 		%Attack3Sound.play()
-	
-	
-	

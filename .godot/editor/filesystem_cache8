@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1719870840
+::res://::1720058012
 AttackArea.gd::GDScript::-1::1719802755::0::1::::<>Area2D<>::
 campfire.png::CompressedTexture2D::1610090138563795016::1719802755::1719802755::1::::<><>::
 campfire_static_body.gd::GDScript::-1::1719802755::0::1::::<>StaticBody2D<>::
-campfire_static_body.tscn::PackedScene::2615875456742955112::1719807113::0::1::::<><>::res://campfire_static_body.gd<>uid://d31efrtxcmoh7::::res://LitCampfireNoFlame.png<>uid://ct86tdshslpye::::res://universalShadowMoreBlurry.png<>uid://dtqgssn7kryux::::res://flame.png<>uid://dgq72cl58kaeb::::res://audio/campfire.mp3
+campfire_static_body.tscn::PackedScene::2615875456742955112::1720057291::0::1::::<><>::res://campfire_static_body.gd<>uid://d31efrtxcmoh7::::res://LitCampfireNoFlame.png<>uid://ct86tdshslpye::::res://universalShadowMoreBlurry.png<>uid://dtqgssn7kryux::::res://flame.png<>uid://dgq72cl58kaeb::::res://audio/campfire.mp3
 castle.png::CompressedTexture2D::5957058297274907215::1719802755::1719802755::1::::<><>::
 Castle.tscn::PackedScene::7507326237771144151::1719802755::0::1::::<><>::uid://cq4v46cn2xf6v::::res://castle.png
 CastleDoor.png::CompressedTexture2D::1424528960740325774::1719802755::1719802755::1::::<><>::
@@ -24,7 +24,7 @@ HitboxBody.gd::GDScript::-1::1719802755::0::1::::<>CharacterBody2D<>::
 icon.png::CompressedTexture2D::1805275433406436661::1719802755::1719802755::1::::<><>::
 icon.svg::CompressedTexture2D::5612522889472496307::1719802755::1719802755::1::::<><>::
 interface.gd::GDScript::-1::1719806280::0::1::::<>Control<>::
-interface.tscn::PackedScene::2181458368617479927::1719807113::0::1::::<><>::uid://b6dgmcx3tdlj2::::res://Head.png<>res://interface.gd<>uid://dcej8dr1qexic::::res://talent_tree.tscn
+interface.tscn::PackedScene::2181458368617479927::1720057290::0::1::::<><>::uid://b6dgmcx3tdlj2::::res://Head.png<>res://interface.gd<>uid://dcej8dr1qexic::::res://talent_tree.tscn
 knight.gd::GDScript::-1::1719802755::0::1::::<>Node2D<>::
 knight.tscn::PackedScene::6167335031395203820::1719802755::0::1::::<><>::res://knight.gd<>uid://bgs8ustlp78ux::::res://LeftUpperLeg.png<>uid://bea1d8pcp31bn::::res://LeftLowerLeg.png<>uid://bgs2fd7yq2dqg::::res://RightUpperLeg.png<>uid://bvo3yp8nu8gu7::::res://RightLowerLeg.png<>uid://cbxkxs5tt3cee::::res://Torso.png<>uid://cgvkxojantchd::::res://LeftUpperArm.png<>uid://dr7fgkxds3ur3::::res://LeftLowerArm.png<>uid://d2h2xmcxeigcy::::res://RightUpperArm.png<>uid://bylp1oq8k4yvw::::res://RightLowerArm.png<>uid://b6dgmcx3tdlj2::::res://Head.png<>uid://ccrqkl3ipsty1::::res://sword.png
 KnightNew.gd::GDScript::-1::1719802755::0::1::::<>Node2D<>::
@@ -34,12 +34,12 @@ LeftLowerLeg.png::CompressedTexture2D::2668761813993540839::1719802755::17198027
 LeftUpperArm.png::CompressedTexture2D::5237975354485392417::1719802755::1719802755::1::::<><>::
 LeftUpperLeg.png::CompressedTexture2D::2846752897026480339::1719802755::1719802755::1::::<><>::
 level_1.gd::GDScript::-1::1719802755::0::1::::<>Node2D<>::
-level_1.tscn::PackedScene::3202505704869844156::1719807113::0::1::::<><>::res://level_1.gd<>uid://cdeyqc0j7jgsn::::res://player.tscn<>uid://cwb4xirnn5025::::res://tree_texture_1.tscn<>uid://cesdmk1wkmbxp::::res://tree_texture_2.tscn<>uid://0aib1egv6tpb::::res://tree_texture_3.tscn<>uid://8f0cbj6y6hu::::res://CobblestoneRoad.png<>uid://bbalocc61c1dj::::res://tree_1_static_node.tscn<>uid://bdjfc7djfjec3::::res://campfire_static_body.tscn<>uid://6cykhroc05l8::::res://interface.tscn<>res://Teleport.gd<>uid://b6sne32qhuwvw::::res://skeleton_warrior.tscn<>uid://de7utiv60rgw2::::res://Castle.tscn<>res://LeaveLevel1Area.gd
+level_1.tscn::PackedScene::3202505704869844156::1720057290::0::1::::<><>::res://level_1.gd<>uid://cdeyqc0j7jgsn::::res://player.tscn<>uid://cwb4xirnn5025::::res://tree_texture_1.tscn<>uid://cesdmk1wkmbxp::::res://tree_texture_2.tscn<>uid://0aib1egv6tpb::::res://tree_texture_3.tscn<>uid://8f0cbj6y6hu::::res://CobblestoneRoad.png<>uid://bbalocc61c1dj::::res://tree_1_static_node.tscn<>uid://bdjfc7djfjec3::::res://campfire_static_body.tscn<>uid://6cykhroc05l8::::res://interface.tscn<>res://Teleport.gd<>uid://b6sne32qhuwvw::::res://skeleton_warrior.tscn<>uid://de7utiv60rgw2::::res://Castle.tscn<>res://LeaveLevel1Area.gd
 level_2.gd::GDScript::-1::1719802755::0::1::::<>Node2D<>::
-level_2.tscn::PackedScene::7694636407198469255::1719807113::0::1::::<><>::res://level_2.gd<>uid://cdeyqc0j7jgsn::::res://player.tscn<>uid://s32su2kxg5r1::::res://wall.png<>uid://bdjfc7djfjec3::::res://campfire_static_body.tscn<>uid://6cykhroc05l8::::res://interface.tscn<>uid://b6sne32qhuwvw::::res://skeleton_warrior.tscn
+level_2.tscn::PackedScene::7694636407198469255::1720057290::0::1::::<><>::res://level_2.gd<>uid://cdeyqc0j7jgsn::::res://player.tscn<>uid://s32su2kxg5r1::::res://wall.png<>uid://bdjfc7djfjec3::::res://campfire_static_body.tscn<>uid://6cykhroc05l8::::res://interface.tscn<>uid://b6sne32qhuwvw::::res://skeleton_warrior.tscn
 LitCampfireNoFlame.png::CompressedTexture2D::9178476214786766310::1719802755::1719802755::1::::<><>::
 MainMenu.gd::GDScript::-1::1719806870::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::8652798632636145646::1719807114::0::1::::<><>::res://MainMenu.gd
+main_menu.tscn::PackedScene::8652798632636145646::1720057291::0::1::::<><>::res://MainMenu.gd
 player.gd::GDScript::-1::1719802755::0::1::::<>CharacterBody2D<>::
 player.tscn::PackedScene::4993151333964265393::1719802755::0::1::::<><>::res://player.gd<>res://KnightNew.gd<>uid://cbxkxs5tt3cee::::res://Torso.png<>uid://cgvkxojantchd::::res://LeftUpperArm.png<>uid://dr7fgkxds3ur3::::res://LeftLowerArm.png<>uid://bgs2fd7yq2dqg::::res://RightUpperLeg.png<>uid://bvo3yp8nu8gu7::::res://RightLowerLeg.png<>uid://bea1d8pcp31bn::::res://LeftLowerLeg.png<>uid://bgs8ustlp78ux::::res://LeftUpperLeg.png<>uid://b6dgmcx3tdlj2::::res://Head.png<>uid://d2h2xmcxeigcy::::res://RightUpperArm.png<>uid://bylp1oq8k4yvw::::res://RightLowerArm.png<>uid://ccrqkl3ipsty1::::res://sword.png<>res://HitBox.gd<>uid://cfac1bc48ky0t::::res://audio/Attack1.mp3<>uid://ceryvuuskn8ia::::res://audio/Attack2.mp3<>uid://d0k25bqc3of6o::::res://audio/Attack3.mp3<>uid://douvq8ptia50d::::res://audio/KnightRun.mp3
 RightLowerArm.png::CompressedTexture2D::4094619033391233384::1719802755::1719802755::1::::<><>::
@@ -57,8 +57,8 @@ SkeletonTorso.png::CompressedTexture2D::2914448500150053400::1719802755::1719802
 skeleton_warrior.gd::GDScript::-1::1719802755::0::1::::<>CharacterBody2D<>::
 skeleton_warrior.tscn::PackedScene::4600231613227421192::1719802755::0::1::::<><>::uid://bhr1snnebklga::::res://SkeletonTorso.png<>res://skeleton_warrior.gd<>uid://rx2d8c68oy81::::res://SkeletonHead.png<>uid://coul3sx3sqilr::::res://SkeletonLeftArm.png<>uid://crhq8j4gqw7jv::::res://SkeletonRightArm.png<>uid://bdhab278cmemk::::res://SkeletonLeftUpperLeg.png<>uid://dludj6x3ok1k6::::res://SkeletonLeftLeg.png<>uid://d1dui0bsx1sel::::res://SkeletonRightUpperLeg.png<>uid://bwowo1g3fk277::::res://SkeletonRightLeg.png<>res://HitboxBody.gd
 sword.png::CompressedTexture2D::4949303427700229398::1719802755::1719802755::1::::<><>::
-talent_tree.gd::GDScript::-1::1719805954::0::1::::<>Control<>::
-talent_tree.tscn::PackedScene::7308502818539978766::1719807227::0::1::::<><>::res://talent_tree.gd<>uid://b6dgmcx3tdlj2::::res://Head.png
+talent_tree.gd::GDScript::-1::1720057281::0::1::::<>Control<>::
+talent_tree.tscn::PackedScene::7308502818539978766::1720057291::0::1::::<><>::res://talent_tree.gd<>uid://b6dgmcx3tdlj2::::res://Head.png
 Teleport.gd::GDScript::-1::1719802755::0::1::::<>Area2D<>::
 Torso.png::CompressedTexture2D::4891160135209288068::1719802755::1719802755::1::::<><>::
 Tree1.png::CompressedTexture2D::2267010433187127265::1719802755::1719802755::1::::<><>::

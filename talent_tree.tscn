@@ -18,36 +18,36 @@ script = ExtResource("1_pfhlw")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = -1084.0
-offset_right = 1917.0
-offset_bottom = -11.0
+offset_left = -83.0
+offset_top = -1081.0
+offset_right = 1839.0
+offset_bottom = 121.0
 
 [node name="HP++" type="Button" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 643.74
-offset_top = 508.68
-offset_right = 724.74
-offset_bottom = 578.68
+offset_left = 893.0
+offset_top = 552.0
+offset_right = 974.0
+offset_bottom = 622.0
 toggle_mode = true
 action_mode = 0
 text = "+50 HP"
 
 [node name="Confirm" type="Button" parent="Background"]
 layout_mode = 0
-offset_left = 803.0
-offset_top = 969.0
-offset_right = 1067.0
-offset_bottom = 1047.0
+offset_left = 1819.0
+offset_top = 7.0
+offset_right = 1910.0
+offset_bottom = 85.0
 text = "Confirm"
 
 [node name="TextureButton" type="TextureButton" parent="Background"]
 layout_mode = 0
-offset_left = 406.0
-offset_top = 405.0
-offset_right = 608.0
-offset_bottom = 526.0
+offset_left = 1093.0
+offset_top = 999.0
+offset_right = 1295.0
+offset_bottom = 1209.0
 texture_normal = ExtResource("2_4i23y")
 
 [connection signal="toggled" from="Background/HP++" to="." method="_on_hp_toggled"]
