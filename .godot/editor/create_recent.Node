@@ -1,4 +1,9 @@
 TextureButton
+<<<<<<< Updated upstream
+=======
+Sprite2D
+Button
+>>>>>>> Stashed changes
 ColorRect
 Button
 AnimationTree
@@ -10,6 +15,9 @@ AudioStreamPlayer
 AudioStreamPlayer2D
 CollisionShape2D
 Area2D
+<<<<<<< Updated upstream
 Node2D
 CollisionPolygon2D
 StaticBody2D
+=======
+>>>>>>> Stashed changes

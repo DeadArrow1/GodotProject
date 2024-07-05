@@ -2,8 +2,13 @@ res://level_1.tscn
 res://level_2.tscn
 res://interface.tscn
 res://campfire_static_body.tscn
+<<<<<<< Updated upstream
 res://talent_tree.tscn
 res://main_menu.tscn
+=======
+res://main_menu.tscn
+res://skill_tree.tscn
+>>>>>>> Stashed changes
 res://interface.gd
 res://player.gd
 res://Global.gd
