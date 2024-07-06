@@ -12,7 +12,28 @@ var attack
 var skillPointCount
 
 
+#encounterOptions
+#encounter = [name,description,PlayerModifiers[health,damage,armor,XP],enemy modifiers[health,damage],rewards[Maxhealth,damage,armor,XP,gold],image]
+var encounterOption1 = ["Ser Hervis's wisdom", "+ 25% XP gain from this encounter", [0,0,0,25],[0,0],[0,0,0,0,0], "res://EncounterOptionXPBackground.png"]
+var encounterOption2 = ["Trial by combat", "+ 5 damage after this encounter, enemies deal 50% more damage", [0,0,0,0],[0,50],[0,5,0,0,0], "res://EncounterOptionXPBackground.png"]
+var encounterOption3 = ["Gold rush", "+50 gold after this encounter", [0,0,0,0],[0,0],[0,0,0,0,5], "res://EncounterOptionXPBackground.png"]
 
+var encounterOptions=[encounterOption1,encounterOption2,encounterOption3]
+var PresentOptions=[]
+
+var NumberOfCurrentlyShownActions
+#ENCOUNTERS END####################################
+
+#MODIFIERS####################
+#[health,damage,armor,XP]
+var PlayerModifiers=[0,0,0,0]
+
+#[health,damage]
+var EnemyModifiers=[0,0]
+#MODIFIERS###################
+
+
+var encounterStarted
 
 
 func _ready():
@@ -83,4 +104,23 @@ func _on_player_xp_changed(XP,XPlevelUP):
 func actionPossible(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
 	Interface.ShowUsePrompt(value)
+	
+	
+signal start_encounter
+func editModifiers(option):
+	PlayerModifiers=option[2]
+	EnemyModifiers=option[3]
+	print("PlayerModifiers")
+	print(PlayerModifiers)
+	
+	print("EnemyModifiers")
+	print(EnemyModifiers)
+	
+	print("Encounter started")
+	start_encounter.emit()
+	
+	
+	
+	
+
 

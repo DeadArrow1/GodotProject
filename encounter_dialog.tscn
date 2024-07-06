@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqm0ajkhvk2e5"]
+
+[ext_resource type="Script" path="res://encounter_dialog.gd" id="1_uyegg"]
+[ext_resource type="Texture2D" uid="uid://cyb8ubwsf4uqk" path="res://EncounterBackround.png" id="2_ytvad"]
+[ext_resource type="Script" path="res://EncounerOptions.gd" id="3_bh3l3"]
+
+[node name="encounter_dialog" type="Control" groups=["Encounter"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1231.0
+offset_top = -204.0
+offset_right = -265.0
+offset_bottom = -1053.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_uyegg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(243.5, 141)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ytvad")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+
+[node name="EncounterOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+script = ExtResource("3_bh3l3")
+
+[node name="CancelButton" type="Button" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Close
+"
+
+[connection signal="child_entered_tree" from="MarginContainer" to="MarginContainer" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="MarginContainer/VBoxContainer2/EncounterOptions" to="." method="_on_encounter_options_child_entered_tree"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/CancelButton" to="." method="_on_cancel_button_pressed"]

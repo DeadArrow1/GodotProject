@@ -2,11 +2,16 @@ extends Node2D
 
 var XPGainEnabled=true
 
-
+func _ready():
+	Global.PresentOptions=[]
+	Global.encounterStarted=false
+	
+	Global.start_encounter.connect(begin_encounter)
 
 func _on_child_exiting_tree(node):
 	if node.has_method("GiveXP") and XPGainEnabled:
-		var XPGain=node.XP_yield
+		var XPGain=node.XP_yield + node.XP_yield *(Global.PlayerModifiers[3]*0.01)
+		print("XP GAIN: " + str(XPGain))
 		
 		get_node("player").UpdateXP(XPGain)
 		
@@ -28,6 +33,12 @@ func begin_encounter():
 	spawn_mob()
 	spawn_mob()
 
+func _on_child_entered_tree(node):
+	if(node.has_method("setAggro")):
+		node.setAggro(true)
 
-func _on_encounter_start_area_start_encounter():
+
+func _on_interface_start_encounter():
+	$InterfaceLayer/Interface.ShowUsePrompt(false)
+	Global.encounterStarted=true
 	begin_encounter()

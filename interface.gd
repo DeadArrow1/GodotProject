@@ -4,6 +4,8 @@ var oldHPValue
 
 var skill_tree
 
+signal startEncounter
+
 	
 func _ready():
 	get_node("ColorRect/AnimationTree").active=true
@@ -81,3 +83,16 @@ func _on_encounter_start_area_show_use_prompt(boolvalue):
 func _on_btn_skill_point_pressed():
 	skill_tree = preload("res://skill_tree.tscn").instantiate()
 	add_child(skill_tree)
+
+
+func _on_encounter_start_area_open_encounter_dialog():
+	skill_tree = preload("res://encounter_dialog.tscn").instantiate()
+	add_child(skill_tree)
+
+
+func _on_child_entered_tree(node):
+		if(node.is_in_group("Encounter")):
+			node.beginEncounter.connect(begin_encounter)
+
+func begin_encounter():
+	startEncounter.emit()

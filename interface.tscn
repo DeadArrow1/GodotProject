@@ -385,6 +385,7 @@ offset_left = 306.0
 offset_top = 9.0
 offset_right = 345.0
 offset_bottom = 45.0
+tooltip_text = "This will open the skill tree"
 theme_override_font_sizes/font_size = 20
 text = "+"
 
@@ -409,5 +410,6 @@ libraries = {
 "": SubResource("AnimationLibrary_27rjj")
 }
 
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="value_changed" from="ColorRect/BoxContainer/HealthBar" to="." method="_on_health_bar_value_changed"]
 [connection signal="pressed" from="btnSkillPoint" to="." method="_on_btn_skill_point_pressed"]

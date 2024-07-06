@@ -10,6 +10,8 @@ var lastPlayerPosition : Vector2 = Vector2.ZERO
 
 var dmgTakenRecord=0
 
+var unlimited_aggro
+
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var animation_tree2 : AnimationTree = $AnimationTree2
@@ -60,11 +62,11 @@ func _physics_process(delta):
 			direction=Vector2.ZERO
 		
 	
-	if(AggroAcquired):
+	if(AggroAcquired || unlimited_aggro):
 		direction = global_position.direction_to(player.global_position)
 	
 	%ProgressBar.value = health
-	if(!isAttacking):
+	if(!isAttacking and animation_tree["parameters/conditions/isHit"] == false):
 	
 		var left
 		var right
@@ -147,6 +149,12 @@ func _on_hitbox_body_hit_taken(value):
 	animation_tree2["parameters/conditions/damageTaken"] = true
 	animation_tree2.get("parameters/playback").start("HPChange",true)
 	
+	animation_tree["parameters/conditions/isHit"] = true
+	animation_tree.get("parameters/playback").start("isHit",true)
+	animation_tree["parameters/conditions/isAttacking"] = false 
+	animation_tree["parameters/conditions/isIdle"] = false 
+	animation_tree["parameters/conditions/isMoving"] = false
+	
 	health -= value
 	if health <=0:
 		queue_free()
@@ -166,7 +174,8 @@ func _on_attack_detection_body_exited(body):
 func resetDmgRecord():
 	dmgTakenRecord=0
 
-
+func setAggro(boolvalue):
+	unlimited_aggro=boolvalue
 	
 
 
@@ -175,3 +184,6 @@ func _on_parry_window_get_stun():
 		position += Vector2(-100, 0)
 	else:
 		position += Vector2(100, 0)
+		
+func setIsHitParameter(boolvalue):
+	animation_tree["parameters/conditions/isHit"] = boolvalue

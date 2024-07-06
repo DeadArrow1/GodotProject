@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdvww27b00fwi"]
+
+[ext_resource type="Script" path="res://EncounterOption.gd" id="1_iclhe"]
+
+[node name="OptionContainer" type="HBoxContainer" groups=["EncounterOption"]]
+clip_contents = true
+script = ExtResource("1_iclhe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 2
+color = Color(0.882353, 0.513726, 0.443137, 0)
+
+[node name="OptionBackground" type="Sprite2D" parent="ColorRect"]
+position = Vector2(119, 24.5)
+scale = Vector2(0.15, 0.15)
+
+[node name="lblEncounter1Name" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 16.5
+offset_right = 218.0
+offset_bottom = 39.5
+theme_override_font_sizes/font_size = 12
+text = "placeholder"
+
+[node name="lblDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "placeholder
+"
+autowrap_mode = 2
+
+[node name="btnChoose" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Choose"
+
+[connection signal="pressed" from="btnChoose" to="." method="_on_button_pressed"]

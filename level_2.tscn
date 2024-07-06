@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhvlsji84grbb"]
+[gd_scene load_steps=13 format=3 uid="uid://dhvlsji84grbb"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_20vk6"]
 [ext_resource type="PackedScene" uid="uid://cdeyqc0j7jgsn" path="res://player.tscn" id="1_qw5f8"]
@@ -6,9 +6,8 @@
 [ext_resource type="Script" path="res://EncounterStartArea.gd" id="7_pglo8"]
 [ext_resource type="Script" path="res://LeaveArea.gd" id="7_y57wd"]
 [ext_resource type="PackedScene" uid="uid://bdjfc7djfjec3" path="res://campfire_static_body.tscn" id="8_d76je"]
+[ext_resource type="Texture2D" uid="uid://duldxxw07c45i" path="res://Encounter.png" id="8_nf7cu"]
 [ext_resource type="PackedScene" uid="uid://6cykhroc05l8" path="res://interface.tscn" id="9_8dlph"]
-
-[sub_resource type="Curve2D" id="Curve2D_l146b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgfkw"]
 size = Vector2(212.898, 343)
@@ -21,6 +20,10 @@ point_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cupat"]
 radius = 124.662
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efero"]
+radius = 5.0
+height = 44.0
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -41,11 +44,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="player" parent="." groups=["Player"] instance=ExtResource("1_qw5f8")]
 position = Vector2(-719.051, 541.524)
-
-[node name="Path2D" type="Path2D" parent="player"]
-curve = SubResource("Curve2D_l146b")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="player/Path2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -26
@@ -156,21 +154,39 @@ curve = SubResource("Curve2D_sslol")
 position = Vector2(1973.4, 2.89807)
 rotation = -3.13399
 
-[node name="EncounterStartArea" type="Area2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="EncounterStartArea" type="Area2D" parent="StaticBody2D2"]
+y_sort_enabled = true
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("7_pglo8")
 
-[node name="EncounterAreaShape" type="CollisionShape2D" parent="EncounterStartArea"]
+[node name="EncounterAreaShape" type="CollisionShape2D" parent="StaticBody2D2/EncounterStartArea"]
 position = Vector2(881.345, 573.374)
 shape = SubResource("CircleShape2D_cupat")
+debug_color = Color(0.227451, 0.615686, 0.482353, 0.419608)
 
+[node name="Image" type="Sprite2D" parent="StaticBody2D2/EncounterStartArea"]
+y_sort_enabled = true
+position = Vector2(887, 535)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_nf7cu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+y_sort_enabled = true
+position = Vector2(882, 548)
+shape = SubResource("CapsuleShape2D_efero")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="startEncounter" from="InterfaceLayer/Interface" to="." method="_on_interface_start_encounter"]
 [connection signal="body_entered" from="LeaveArea" to="LeaveArea" method="_on_body_entered"]
 [connection signal="body_exited" from="LeaveArea" to="LeaveArea" method="_on_body_exited"]
 [connection signal="leave_level" from="LeaveArea" to="." method="_on_leave_area_leave_level"]
 [connection signal="show_use_prompt" from="LeaveArea" to="InterfaceLayer/Interface" method="_on_leave_area_show_use_prompt"]
-[connection signal="body_entered" from="EncounterStartArea" to="EncounterStartArea" method="_on_body_entered"]
-[connection signal="body_exited" from="EncounterStartArea" to="EncounterStartArea" method="_on_body_exited"]
-[connection signal="show_use_prompt" from="EncounterStartArea" to="InterfaceLayer/Interface" method="_on_encounter_start_area_show_use_prompt"]
-[connection signal="start_encounter" from="EncounterStartArea" to="." method="_on_encounter_start_area_start_encounter"]
+[connection signal="body_entered" from="StaticBody2D2/EncounterStartArea" to="StaticBody2D2/EncounterStartArea" method="_on_body_entered"]
+[connection signal="body_exited" from="StaticBody2D2/EncounterStartArea" to="StaticBody2D2/EncounterStartArea" method="_on_body_exited"]
+[connection signal="open_encounter_dialog" from="StaticBody2D2/EncounterStartArea" to="InterfaceLayer/Interface" method="_on_encounter_start_area_open_encounter_dialog"]
+[connection signal="show_use_prompt" from="StaticBody2D2/EncounterStartArea" to="InterfaceLayer/Interface" method="_on_encounter_start_area_show_use_prompt"]

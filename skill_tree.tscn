@@ -7,31 +7,32 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 589.839
-offset_top = -655.298
-offset_right = 589.839
-offset_bottom = -655.298
+offset_left = -3.0
+offset_top = -1563.0
+offset_right = -3.00012
+offset_bottom = -1563.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_728y8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1939, 1229)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1947.0
+offset_bottom = 1283.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(700, 500)
+custom_minimum_size = Vector2(1939, 1229)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
 [node name="Control" type="Control" parent="VBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(700, 1000)
+custom_minimum_size = Vector2(1939, 3000)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/Control"]
 self_modulate = Color(0.278431, 0.0470588, 0.443137, 1)
-custom_minimum_size = Vector2(700, 1000)
+custom_minimum_size = Vector2(1939, 1229)
 layout_mode = 2
 offset_right = 700.0
 offset_bottom = 1000.0
