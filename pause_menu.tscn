@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://2lm4hmil1475"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_bkl6k"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bkl6k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 1923.0
+offset_bottom = 1074.0
+theme_override_font_sizes/font_size = 50
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnQuitGame" type="Button" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 716.0
+offset_right = 1171.0
+offset_bottom = 841.0
+text = "Quit game"
+
+[node name="btnBackToMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 749.0
+offset_top = 579.0
+offset_right = 1171.0
+offset_bottom = 704.0
+text = "Back to menu"
+
+[connection signal="pressed" from="btnQuitGame" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="btnBackToMenu" to="." method="_on_btn_back_to_menu_pressed"]

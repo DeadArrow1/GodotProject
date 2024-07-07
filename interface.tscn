@@ -179,6 +179,7 @@ states/levelUpButtonShine/position = Vector2(349, 95)
 transitions = ["Start", "levelUpButtonShine", SubResource("AnimationNodeStateMachineTransition_kwjwd")]
 
 [node name="Interface" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

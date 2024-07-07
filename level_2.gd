@@ -2,7 +2,15 @@ extends Node2D
 
 var XPGainEnabled=true
 
+func _process(delta):
+	if Input.is_action_just_pressed("PauseGame"):
+		var pauseMenu = preload("res://pause_menu.tscn").instantiate()
+		$InterfaceLayer.add_child(pauseMenu)
+		Global.pauseGame(true)
+		
+
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	Global.PresentOptions=[]
 	Global.encounterStarted=false
 	
@@ -27,6 +35,9 @@ func spawn_mob():
 	add_child(new_mob)
 
 func begin_encounter():
+	$InterfaceLayer/Interface.ShowUsePrompt(false)
+	Global.encounterStarted=true
+	
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
@@ -36,9 +47,4 @@ func begin_encounter():
 func _on_child_entered_tree(node):
 	if(node.has_method("setAggro")):
 		node.setAggro(true)
-
-
-func _on_interface_start_encounter():
-	$InterfaceLayer/Interface.ShowUsePrompt(false)
-	Global.encounterStarted=true
-	begin_encounter()
+	

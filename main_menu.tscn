@@ -1,8 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvjqlgwn3nrr7"]
+[gd_scene load_steps=14 format=3 uid="uid://dvjqlgwn3nrr7"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_e0ex6"]
+[ext_resource type="Texture2D" uid="uid://ccrqkl3ipsty1" path="res://sword.png" id="2_40ffb"]
+[ext_resource type="FontFile" uid="uid://c36l5impkw80u" path="res://GaMaamli-Regular.ttf" id="2_ju7gl"]
+[ext_resource type="PackedScene" uid="uid://x88qo6n8ic13" path="res://MenuKnight.tscn" id="2_n8m3g"]
+[ext_resource type="Texture2D" uid="uid://balpsp1sdipa7" path="res://UnderConstrution.png" id="2_qi4ch"]
+[ext_resource type="Texture2D" uid="uid://cq4v46cn2xf6v" path="res://castle.png" id="2_x2t0w"]
+[ext_resource type="PackedScene" uid="uid://bdjfc7djfjec3" path="res://campfire_static_body.tscn" id="3_1wp6e"]
+[ext_resource type="Texture2D" uid="uid://7kfligxx82tx" path="res://Tree1.png" id="3_jfkdp"]
+[ext_resource type="AudioStream" uid="uid://dgq72cl58kaeb" path="res://audio/campfire.mp3" id="8_e37qs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r62xw"]
+bg_color = Color(0, 0.156863, 0.223529, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogh6h"]
+bg_color = Color(0, 0.156863, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csx4m"]
+bg_color = Color(0, 0.156863, 0.223529, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5hag"]
+bg_color = Color(0, 0.156863, 0.223529, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,24 +45,120 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e0ex6")
 
-[node name="StartButton" type="Button" parent="."]
-modulate = Color(0.0784314, 0.698039, 0.796078, 1)
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1940.0
+offset_bottom = 1106.0
+color = Color(0, 0.0901961, 0.0901961, 1)
+
+[node name="Castle" type="Sprite2D" parent="."]
+position = Vector2(225, 240)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_x2t0w")
+flip_h = true
+
+[node name="Tree1" type="Sprite2D" parent="."]
+modulate = Color(0.768627, 0.458824, 0.27451, 1)
+position = Vector2(1416, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_jfkdp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 11.0
+offset_right = 2308.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.988235, 0.756863, 0, 1)
+theme_override_fonts/font = ExtResource("2_ju7gl")
+theme_override_font_sizes/font_size = 80
+text = "The Doomed Errant"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(27, 21)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+clip_contents = true
+offset_left = 511.0
+offset_top = 174.0
+offset_right = 722.0
+offset_bottom = 599.0
+color = Color(1, 1, 1, 0)
+
+[node name="sword" type="Sprite2D" parent="Node2D/ColorRect"]
+position = Vector2(165, 286)
+rotation = -0.785397
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_40ffb")
+
+[node name="Knight" parent="." instance=ExtResource("2_n8m3g")]
+position = Vector2(1240, 877)
+scale = Vector2(-1, 1)
+
+[node name="CampfireStaticBody" parent="." instance=ExtResource("3_1wp6e")]
+position = Vector2(547, 895)
+scale = Vector2(1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -143.5
-offset_top = -25.5
-offset_right = 143.5
-offset_bottom = 25.5
+offset_left = -200.0
+offset_top = 133.0
+offset_right = 200.0
+offset_bottom = 493.0
 grow_horizontal = 2
-grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.905882, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
-text = "Start Game
+theme_override_fonts/font = ExtResource("2_ju7gl")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_r62xw")
+text = "Arena mode
 "
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="StartButton2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.905882, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ju7gl")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogh6h")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_csx4m")
+disabled = true
+text = "Story mode
+"
+
+[node name="QuitGameButton" type="Button" parent="VBoxContainer"]
+modulate = Color(0.0784314, 0.698039, 0.796078, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.905882, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ju7gl")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5hag")
+text = "Quit game"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(40, 179)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_qi4ch")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(360, 179)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_qi4ch")
+
+[node name="fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_e37qs")
+autoplay = true

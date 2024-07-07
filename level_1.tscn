@@ -36,7 +36,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="player" parent="." groups=["Player"] instance=ExtResource("2_p5gjy")]
-position = Vector2(345.049, 448.764)
+position = Vector2(645.147, 412.213)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -26

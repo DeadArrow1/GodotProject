@@ -36,6 +36,7 @@ var EnemyModifiers=[0,0]
 var encounterStarted
 
 
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -104,6 +105,10 @@ func _on_player_xp_changed(XP,XPlevelUP):
 func actionPossible(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
 	Interface.ShowUsePrompt(value)
+	
+func pauseGame(boolvalue):
+	get_tree().paused=boolvalue
+	
 	
 	
 signal start_encounter

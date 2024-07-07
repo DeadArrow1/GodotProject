@@ -11,3 +11,17 @@ res://EncounterStartArea.gd
 res://EncounerOptions.gd
 res://level_2.gd
 res://skeleton_warrior.tscn
+res://skeleton_warrior.gd
+res://player.gd
+res://skill_tree.tscn
+res://skill_tree.gd
+res://pause_menu.tscn
+res://pause_menu.gd
+res://level_1.tscn
+res://level_1.gd
+res://main_menu.tscn
+res://MainMenu.gd
+res://menu_knight.tscn
+res://player.tscn
+res://menu_knight.gd
+res://MenuKnight.tscn

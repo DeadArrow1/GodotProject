@@ -28,6 +28,7 @@ var direction : Vector2 = Vector2.ZERO
 
 var health = 200.0
 var XP_yield = 20
+var damage = 10
 
 signal EnemySlain
 
@@ -35,7 +36,7 @@ func GiveXP():
 	return XP_yield
 
 func _ready():
-	
+	damage = damage + damage * Global.EnemyModifiers[1]*0.01
 	
 	%ProgressBar.max_value=health
 	animation_tree.active=true
@@ -121,7 +122,7 @@ func RootEntity(value):
 func _on_attack_hit_body_entered(body):
 	print("Skeleton hit registered")
 	if body.is_in_group("Player"):
-		body.take_damage(10)
+		body.take_damage(damage)
 
 func _on_line_of_sight_body_entered(body):
 	if body.is_in_group("Player"):
@@ -150,7 +151,7 @@ func _on_hitbox_body_hit_taken(value):
 	animation_tree2.get("parameters/playback").start("HPChange",true)
 	
 	animation_tree["parameters/conditions/isHit"] = true
-	animation_tree.get("parameters/playback").start("isHit",true)
+	animation_tree.get("parameters/playback").start("hitrecieved",true)
 	animation_tree["parameters/conditions/isAttacking"] = false 
 	animation_tree["parameters/conditions/isIdle"] = false 
 	animation_tree["parameters/conditions/isMoving"] = false
