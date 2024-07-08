@@ -15,6 +15,9 @@ func start_button_pressed():
 	Global.level=1
 	Global.attack=30
 	Global.skillPointCount=0
+	
+	
+	
 	Global.goto_scene("res://level_1.tscn")
 
 func quit_button_pressed():
