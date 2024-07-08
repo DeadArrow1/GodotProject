@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 res://level_1.tscn
 res://level_2.tscn
 res://interface.tscn
@@ -13,3 +14,9 @@ res://interface.gd
 res://player.gd
 res://Global.gd
 res://talent_tree.gd
+=======
+res://skill_tree.tscn
+res://main_menu.tscn
+res://interface.tscn
+res://skill_tree.gd
+>>>>>>> Stashed changes

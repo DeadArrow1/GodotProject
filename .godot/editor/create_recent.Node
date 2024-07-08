@@ -1,10 +1,17 @@
+<<<<<<< Updated upstream
 TextureButton
 <<<<<<< Updated upstream
 =======
+=======
+Node
+Line2D
+TextureButton
+>>>>>>> Stashed changes
 Sprite2D
 Button
 >>>>>>> Stashed changes
 ColorRect
+<<<<<<< Updated upstream
 Button
 AnimationTree
 AnimationPlayer
@@ -20,4 +27,15 @@ Node2D
 CollisionPolygon2D
 StaticBody2D
 =======
+>>>>>>> Stashed changes
+=======
+Control
+VBoxContainer
+Container
+Popup
+GridContainer
+BoxContainer
+ItemList
+AspectRatioContainer
+ScrollContainer
 >>>>>>> Stashed changes
