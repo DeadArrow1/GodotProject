@@ -1,14 +1,4 @@
-res://main_menu.tscn
-res://level_2.tscn
-res://EncounterOption.tscn
-res://encounter_dialog.tscn
 res://interface.tscn
-res://pause_menu.tscn
-res://level_1.tscn
+res://main_menu.tscn
 res://player.tscn
-res://MenuKnight.tscn
 res://skill_tree.tscn
-res://interface.gd
-res://skill_tree.gd
-res://Global.gd
-res://MainMenu.gd
