@@ -10,14 +10,15 @@ func start_button_pressed():
 	
 	
 	Global.InitializeSkills()
-	Global.maxHealth=100
-	Global.health = 50
-	Global.XP=0
-	Global.XPlevelUP=100
-	Global.armor=10
-	Global.level=1
-	Global.attack=30
-	Global.skillPointCount=0
+	Global.maxHealth=Global.maxHealthBase
+	Global.health = Global.healthBase
+	Global.XP=Global.XPBase
+	Global.XPlevelUP=Global.XPlevelUPBase
+	Global.armor=Global.armorBase
+	Global.level=Global.levelBase
+	Global.attack=Global.attackBase
+	Global.skillPointCount=Global.skillPointCountBase
+	Global.movementSpeed=Global.movementSpeedBase
 	
 	
 	

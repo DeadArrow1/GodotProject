@@ -129,18 +129,6 @@ states/Reset/node = SubResource("AnimationNodeBlendSpace2D_xxd6k")
 states/Reset/position = Vector2(345, 45)
 transitions = ["Start", "Reset", SubResource("AnimationNodeStateMachineTransition_o64iy"), "Reset", "HPChange", SubResource("AnimationNodeStateMachineTransition_87feq"), "HPChange", "Reset", SubResource("AnimationNodeStateMachineTransition_66mau")]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0wsrv"]
-animation = &"levelUpButtonShine"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kwjwd"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tvibg"]
-states/Start/position = Vector2(164, 95)
-states/levelUpButtonShine/node = SubResource("AnimationNodeAnimation_0wsrv")
-states/levelUpButtonShine/position = Vector2(349, 95)
-transitions = ["Start", "levelUpButtonShine", SubResource("AnimationNodeStateMachineTransition_kwjwd")]
-
 [sub_resource type="Animation" id="Animation_pwosd"]
 length = 0.001
 tracks/0/type = "value"
@@ -177,6 +165,18 @@ _data = {
 "RESET": SubResource("Animation_pwosd"),
 "levelUpButtonShine": SubResource("Animation_i60ds")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0wsrv"]
+animation = &"levelUpButtonShine"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kwjwd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tvibg"]
+states/Start/position = Vector2(164, 95)
+states/levelUpButtonShine/node = SubResource("AnimationNodeAnimation_0wsrv")
+states/levelUpButtonShine/position = Vector2(349, 95)
+transitions = ["Start", "levelUpButtonShine", SubResource("AnimationNodeStateMachineTransition_kwjwd")]
 
 [node name="Interface" type="Control"]
 process_mode = 3
@@ -361,6 +361,9 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="ColorRect"]
 active = false
 root_node = NodePath("../../btnSkillPoint/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_i4fh3")
+}
 tree_root = SubResource("AnimationNodeStateMachine_1ce20")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/HPChanged = false
@@ -387,6 +390,9 @@ theme_override_font_sizes/font_size = 20
 text = "+"
 
 [node name="AnimationTree" type="AnimationTree" parent="btnSkillPoint"]
+libraries = {
+"": SubResource("AnimationLibrary_27rjj")
+}
 tree_root = SubResource("AnimationNodeStateMachine_tvibg")
 anim_player = NodePath("../AnimationPlayer")
 

@@ -43,6 +43,7 @@ func ShowUsePrompt(boolValue):
 func UpdateMaxHealth(value):
 	get_node("ColorRect2/GridContainer/MaxHealthValue").text=str(value)
 	get_node("ColorRect/BoxContainer/HealthBar").max_value=value
+	get_node("ColorRect/HealthTakenBar").max_value=value
 	
 func UpdateAttack(value):
 	get_node("ColorRect2/GridContainer/AttackValue").text=str(value)

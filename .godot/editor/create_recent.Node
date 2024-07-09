@@ -1,3 +1,4 @@
+Timer
 AspectRatioContainer
 CenterContainer
 Control
@@ -12,4 +13,3 @@ AnimationTree
 AnimationPlayer
 StaticBody2D
 VBoxContainer
-Button

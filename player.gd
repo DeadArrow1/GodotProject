@@ -80,7 +80,7 @@ func _physics_process(delta):
 			lastDirectionIsRight=true
 		
 		if direction:
-			velocity = direction*500
+			velocity = direction*Global.movementSpeed
 		else:
 			velocity= Vector2.ZERO
 			
@@ -97,7 +97,7 @@ func _physics_process(delta):
 	
 func update_animation_parameters():
 	
-	if(Input.is_action_pressed("Block")):
+	if(Input.is_action_pressed("Block") and Global.ActiveSkills[19]==1):
 		isBlocking=true
 		animation_tree["parameters/conditions/isBlocking"]=true
 	else:
@@ -114,7 +114,7 @@ func update_animation_parameters():
 		else:
 			animation_tree["parameters/conditions/isAttacking"]=false
 		
-		if(Input.is_action_just_pressed("Parry")):
+		if(Input.is_action_just_pressed("Parry") and Global.ActiveSkills[17]==1):
 			animation_tree["parameters/conditions/isParrying"] = true
 		else:
 			animation_tree["parameters/conditions/isParrying"] = false
@@ -183,17 +183,22 @@ func _on_sword_hit_body_entered(body):
 
 
 func _on_hit_box_hit_taken(value):
+	var blockDamageReduction=0
+	
 	if(isBlocking==true):
+		value = value - value *  Global.ActiveSkills[19]*0.8+ Global.ActiveSkills[27]*0.05+ Global.ActiveSkills[33]*0.05 +  Global.ActiveSkills[41]*0.1 
+		
 		if(lastDirectionIsRight):
 			position += Vector2(-20, 0)
 		else:
 			position += Vector2(20, 0)
-	else:
+	#else:
+	if(value>0):
 		Global.health -= (value* ((100-Global.armor)*0.01))
 		health_changed.emit(Global.health)
 		
-		if(Global.health <=0):
-			Global.goto_scene("res://game_over_screen.tscn")
+	if(Global.health <=0):
+		Global.goto_scene("res://game_over_screen.tscn")
 		
 func rest():
 	resting=true
@@ -208,6 +213,13 @@ func regeneration(value):
 func setIsAttackingParameter(boolvalue):
 	animation_tree["parameters/conditions/isAttacking"]=boolvalue
 	
+func TalentHealRegen():
+	if(Global.health<Global.maxHealth):	
+		var regenAmountFlat=(Global.ActiveSkills[15]*5+Global.ActiveSkills[22]*3+Global.ActiveSkills[30]*3+Global.ActiveSkills[36]*10)
+		var regenTotal=regenAmountFlat+regenAmountFlat*Global.ActiveSkills[36]*0.3
+		Global.health+=regenTotal
+		health_changed.emit(Global.health)
+	
 func playAttackSound(number):
 	if(number==1):
 		%Attack1Sound.play()
@@ -215,3 +227,7 @@ func playAttackSound(number):
 		%Attack2Sound.play()
 	if(number==3):
 		%Attack3Sound.play()
+
+
+func _on_timer_timeout():
+	TalentHealRegen()

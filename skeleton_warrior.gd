@@ -123,6 +123,10 @@ func _on_attack_hit_body_entered(body):
 	print("Skeleton hit registered")
 	if body.is_in_group("Player"):
 		body.take_damage(damage)
+		
+		if(Global.ActiveSkills[65]==1):
+			$HitboxBody.take_damage(20)
+		
 
 func _on_line_of_sight_body_entered(body):
 	if body.is_in_group("Player"):
