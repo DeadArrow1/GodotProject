@@ -2,11 +2,14 @@ extends Control
 
 	
 func _ready():
-	$VBoxContainer/StartButton.pressed.connect(self.start_button_pressed)
-	$VBoxContainer/QuitGameButton.pressed.connect(self.quit_button_pressed)
+	$CenterContainer/VBoxContainer/StartButton.pressed.connect(self.start_button_pressed)
+	$CenterContainer/VBoxContainer/QuitGameButton.pressed.connect(self.quit_button_pressed)
 	
 func start_button_pressed():
 	Global.pauseGame(false)
+	
+	
+	Global.InitializeSkills()
 	Global.maxHealth=100
 	Global.health = 50
 	Global.XP=0

@@ -1,3 +1,8 @@
+AspectRatioContainer
+CenterContainer
+Control
+HBoxContainer
+Container
 AudioStreamPlayer2D
 Label
 ColorRect
@@ -8,8 +13,3 @@ AnimationPlayer
 StaticBody2D
 VBoxContainer
 Button
-MarginContainer
-HBoxContainer
-Area2D
-CollisionShape2D
-Marker2D

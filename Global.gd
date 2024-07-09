@@ -35,6 +35,22 @@ var EnemyModifiers=[0,0]
 
 var encounterStarted
 
+#####SKILL TREE
+var ActiveSkills
+
+func InitializeSkills():
+	ActiveSkills = []
+	for n in 74:	
+		ActiveSkills.append(0)
+	print(ActiveSkills.size())
+
+
+
+#####SKILL TREE END
+
+
+
+
 
 
 func _ready():

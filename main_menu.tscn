@@ -46,38 +46,32 @@ grow_vertical = 2
 script = ExtResource("1_e0ex6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1940.0
-offset_bottom = 1106.0
+layout_mode = 2
+offset_right = 2761.0
+offset_bottom = 1778.0
 color = Color(0, 0.0901961, 0.0901961, 1)
 
-[node name="Castle" type="Sprite2D" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+offset_right = 1919.0
+offset_bottom = 524.0
+
+[node name="Castle" type="Sprite2D" parent="CenterContainer"]
 position = Vector2(225, 240)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_x2t0w")
 flip_h = true
 
-[node name="Tree1" type="Sprite2D" parent="."]
+[node name="Tree1" type="Sprite2D" parent="CenterContainer"]
 modulate = Color(0.768627, 0.458824, 0.27451, 1)
 position = Vector2(1416, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jfkdp")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 620.0
-offset_top = 11.0
-offset_right = 2308.0
-offset_bottom = 142.0
-theme_override_colors/font_color = Color(0.988235, 0.756863, 0, 1)
-theme_override_fonts/font = ExtResource("2_ju7gl")
-theme_override_font_sizes/font_size = 80
-text = "The Doomed Errant"
-
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="CenterContainer"]
 position = Vector2(27, 21)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Node2D"]
 clip_contents = true
 offset_left = 511.0
 offset_top = 174.0
@@ -85,33 +79,38 @@ offset_right = 722.0
 offset_bottom = 599.0
 color = Color(1, 1, 1, 0)
 
-[node name="sword" type="Sprite2D" parent="Node2D/ColorRect"]
+[node name="sword" type="Sprite2D" parent="CenterContainer/Node2D/ColorRect"]
 position = Vector2(165, 286)
 rotation = -0.785397
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_40ffb")
 
-[node name="Knight" parent="." instance=ExtResource("2_n8m3g")]
+[node name="Knight" parent="CenterContainer" instance=ExtResource("2_n8m3g")]
 position = Vector2(1240, 877)
-scale = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
 
-[node name="CampfireStaticBody" parent="." instance=ExtResource("3_1wp6e")]
+[node name="CampfireStaticBody" parent="CenterContainer" instance=ExtResource("3_1wp6e")]
 position = Vector2(547, 895)
 scale = Vector2(1, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 133.0
-offset_right = 200.0
-offset_bottom = 493.0
-grow_horizontal = 2
-theme_override_constants/separation = 30
+[node name="fire" type="AudioStreamPlayer2D" parent="CenterContainer"]
+stream = ExtResource("8_e37qs")
+autoplay = true
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.988235, 0.756863, 0, 1)
+theme_override_fonts/font = ExtResource("2_ju7gl")
+theme_override_font_sizes/font_size = 80
+text = "The Doomed Errant"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
@@ -123,7 +122,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r62xw")
 text = "Arena mode
 "
 
-[node name="StartButton2" type="Button" parent="VBoxContainer"]
+[node name="StartButton2" type="Button" parent="CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
@@ -137,7 +136,7 @@ disabled = true
 text = "Story mode
 "
 
-[node name="QuitGameButton" type="Button" parent="VBoxContainer"]
+[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
 modulate = Color(0.0784314, 0.698039, 0.796078, 1)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -149,16 +148,12 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_r5hag")
 text = "Quit game"
 
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(40, 179)
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(41.788, 305.165)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_qi4ch")
 
-[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(360, 179)
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(597.788, 309.165)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_qi4ch")
-
-[node name="fire" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_e37qs")
-autoplay = true
