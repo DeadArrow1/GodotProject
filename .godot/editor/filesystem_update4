@@ -1,11 +1,5 @@
+res://skill_tree.tscn
 res://interface.tscn
 res://main_menu.tscn
 res://player.tscn
-res://skill_tree.tscn
-res://Global.gd
-res://skill_tree.gd
-res://MainMenu.gd
-res://interface.gd
-res://player.gd
-res://skeleton_warrior.gd
 res://skeleton_warrior.tscn

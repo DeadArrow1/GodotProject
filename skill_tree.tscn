@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://gv2y7gy3p7cv"]
+[gd_scene load_steps=45 format=3 uid="uid://gv2y7gy3p7cv"]
 
 [ext_resource type="Script" path="res://skill_tree.gd" id="1_728y8"]
 [ext_resource type="Texture2D" uid="uid://ru67ouvbujwv" path="res://skilltree_background.png" id="2_guh2u"]
@@ -35,6 +35,15 @@
 [ext_resource type="Texture2D" uid="uid://buk6i6ths1w6p" path="res://SkillTree/Buttons/aaMIX.png" id="22_ffhwv"]
 [ext_resource type="Texture2D" uid="uid://b4cy1q16dvov7" path="res://SkillTree/Buttons/thornsOrange.png" id="23_ha1vd"]
 [ext_resource type="Texture2D" uid="uid://dgs6t8yxhwsy4" path="res://SkillTree/Buttons/aaOrange.png" id="23_p116g"]
+[ext_resource type="Texture2D" uid="uid://b8jdkx1s4q2ow" path="res://SkillTree/Buttons/dashWhite.png" id="24_mm2lo"]
+[ext_resource type="Texture2D" uid="uid://bd0ts7v4q8e1p" path="res://SkillTree/Buttons/dashViolet.png" id="25_s7pam"]
+[ext_resource type="Texture2D" uid="uid://c2vqr1i42t562" path="res://SkillTree/Buttons/dashOrange.png" id="26_gqwle"]
+[ext_resource type="Texture2D" uid="uid://nrhqecym4i3v" path="res://SkillTree/Buttons/dodgeWhite.png" id="27_6tmcp"]
+[ext_resource type="Texture2D" uid="uid://bwlqs43a7e5ps" path="res://SkillTree/Buttons/dodgeViolet.png" id="28_7s3e6"]
+[ext_resource type="Texture2D" uid="uid://cs86x6wmo77x3" path="res://SkillTree/Buttons/dodgeOrange.png" id="29_6jcfh"]
+[ext_resource type="Texture2D" uid="uid://b0fc5ccgmqh5i" path="res://SkillTree/Buttons/wwWhite.png" id="30_u4y5j"]
+[ext_resource type="Texture2D" uid="uid://hf641idjeahf" path="res://SkillTree/Buttons/wwViolet.png" id="31_4lmkq"]
+[ext_resource type="Texture2D" uid="uid://bwhlb2mpar86m" path="res://SkillTree/Buttons/wwOrange.png" id="32_8ueg7"]
 
 [node name="Skill_tree" type="Control"]
 layout_mode = 3
@@ -1129,10 +1138,13 @@ offset_left = 435.0
 offset_top = 165.0
 offset_right = 560.0
 offset_bottom = 290.0
+tooltip_text = "Dash
+
+Note: You move swiftly to a new location. Has 5 seconds internal cooldown."
 toggle_mode = true
-texture_normal = ExtResource("21_cx103")
-texture_pressed = ExtResource("22_7ha5b")
-texture_hover = ExtResource("23_ha1vd")
+texture_normal = ExtResource("24_mm2lo")
+texture_pressed = ExtResource("25_s7pam")
+texture_hover = ExtResource("26_gqwle")
 stretch_mode = 0
 
 [node name="Talent73" type="TextureButton" parent="VBoxContainer/ScrollContainer/Control"]
@@ -1141,10 +1153,13 @@ offset_left = 890.0
 offset_top = 165.0
 offset_right = 1015.0
 offset_bottom = 290.0
+tooltip_text = "Dodge
+
+Note: You have 25% chance to nulify incoming attack hit."
 toggle_mode = true
-texture_normal = ExtResource("21_cx103")
-texture_pressed = ExtResource("22_7ha5b")
-texture_hover = ExtResource("23_ha1vd")
+texture_normal = ExtResource("27_6tmcp")
+texture_pressed = ExtResource("28_7s3e6")
+texture_hover = ExtResource("29_6jcfh")
 stretch_mode = 0
 
 [node name="Talent74" type="TextureButton" parent="VBoxContainer/ScrollContainer/Control"]
@@ -1153,10 +1168,13 @@ offset_left = 1350.0
 offset_top = 165.0
 offset_right = 1475.0
 offset_bottom = 290.0
+tooltip_text = "Whirlwind
+
+Note: Damages all enemies in area around you. Has 10 seconds internal cooldowm."
 toggle_mode = true
-texture_normal = ExtResource("21_cx103")
-texture_pressed = ExtResource("22_7ha5b")
-texture_hover = ExtResource("23_ha1vd")
+texture_normal = ExtResource("30_u4y5j")
+texture_pressed = ExtResource("31_4lmkq")
+texture_hover = ExtResource("32_8ueg7")
 stretch_mode = 0
 
 [node name="Talent22" type="TextureButton" parent="VBoxContainer/ScrollContainer/Control"]
