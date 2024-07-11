@@ -26,9 +26,9 @@ signal health_changed
 
 var direction : Vector2 = Vector2.ZERO
 
-var health = 200.0
-var XP_yield = 20
-var damage = 10
+var health = 200.0 + 10 * Global.arenaLevel
+var XP_yield = 20 + 5 * Global.arenaLevel
+var damage = 10 + 5 * Global.arenaLevel
 
 signal EnemySlain
 
@@ -37,6 +37,7 @@ func GiveXP():
 
 func _ready():
 	damage = damage + damage * Global.EnemyModifiers[1]*0.01
+	health = health + health * Global.EnemyModifiers[0]*0.01
 	
 	%ProgressBar.max_value=health
 	animation_tree.active=true
@@ -73,7 +74,7 @@ func _physics_process(delta):
 		var right
 		
 		if direction:
-			velocity = direction*100
+			velocity = direction*(100 + Global.EnemyModifiers[2])
 		else:
 			velocity= Vector2.ZERO
 	
@@ -163,6 +164,10 @@ func _on_hitbox_body_hit_taken(value):
 	health -= value
 	if health <=0:
 		queue_free()
+		const corpse = preload("res://dead_skeleton.tscn")
+		var newCorpse = corpse.instantiate()
+		get_parent().add_child(newCorpse)
+		newCorpse.global_position = global_position
 
 
 func _on_attack_detection_body_entered(body):

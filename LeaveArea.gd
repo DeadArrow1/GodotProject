@@ -28,4 +28,5 @@ func _on_body_exited(body):
 func _teleport():
 	if leave_object.is_in_group("Player"):
 		leave_level.emit()
+		Global.arenaLevel=Global.arenaLevel+1
 		Global.goto_scene("res://level_2.tscn")

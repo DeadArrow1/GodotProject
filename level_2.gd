@@ -13,6 +13,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	Global.PresentOptions=[]
 	Global.encounterStarted=false
+	$InterfaceLayer/Interface/ColorRect3/GridContainer/lblArenaLevelNumber.text=str(Global.arenaLevel)
 	
 	Global.start_encounter.connect(begin_encounter)
 
@@ -38,11 +39,8 @@ func begin_encounter():
 	$InterfaceLayer/Interface.ShowUsePrompt(false)
 	Global.encounterStarted=true
 	
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
+	for n in 4+Global.arenaLevel:
+		spawn_mob()
 
 func _on_child_entered_tree(node):
 	if(node.has_method("setAggro")):

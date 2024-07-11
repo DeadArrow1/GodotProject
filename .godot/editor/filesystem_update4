@@ -1,5 +1,14 @@
-res://skill_tree.tscn
+res://dead_skeleton.tscn
+res://skeleton_warrior.tscn
+res://skeleton_warrior.gd
+res://dead_skeleton.gd
 res://interface.tscn
 res://main_menu.tscn
 res://player.tscn
-res://skeleton_warrior.tscn
+res://skill_tree.tscn
+res://skill_tree.gd
+res://Global.gd
+res://level_2.tscn
+res://LeaveArea.gd
+res://level_2.gd
+res://player.gd

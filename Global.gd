@@ -11,6 +11,7 @@ var level
 var attack
 var skillPointCount
 var movementSpeed
+var arenaLevel=1
 
 var maxHealthBase=100
 var healthBase= 50
@@ -24,13 +25,21 @@ var skillPointCountBase=0
 var movementSpeedBase=300
 
 
+
+
 #encounterOptions
 #encounter = [name,description,PlayerModifiers[health,damage,armor,XP],enemy modifiers[health,damage],rewards[Maxhealth,damage,armor,XP,gold],image]
-var encounterOption1 = ["Ser Hervis's wisdom", "+ 25% XP gain from this encounter", [0,0,0,25],[0,0],[0,0,0,0,0], "res://EncounterOptionXPBackground.png"]
-var encounterOption2 = ["Trial by combat", "+ 5 damage after this encounter, enemies deal 50% more damage", [0,0,0,0],[0,50],[0,5,0,0,0], "res://EncounterOptionXPBackground.png"]
-var encounterOption3 = ["Gold rush", "+50 gold after this encounter", [0,0,0,0],[0,0],[0,0,0,0,5], "res://EncounterOptionXPBackground.png"]
+var encounterOption1 = ["Ser Hervis's wisdom", "+ 25% XP gain from this encounter", [0,0,0,25],[0,0,0],[0,0,0,0,0], "res://EncounterOptionXPBackgroundColorBook.png"]
+var encounterOption2 = ["Trial by combat", "+ 5 damage after this encounter, enemies deal 50% more damage", [0,0,0,0],[0,50],[0,5,0,0,0], "res://EncounterOptionBattleBackground.png"]
+var encounterOption3 = ["The higher the better", "Enemies have 25% more HP. +30% XP gain from this encounter.", [0,0,0,30],[25,0,0],[0,0,0,0,0], "res://EncounterOptionXPBackgroundColorBook.png"]
 
-var encounterOptions=[encounterOption1,encounterOption2,encounterOption3]
+var encounterOption4 = ["Run for life", "+30 HP from this encounter. Enemies move 50% faster.", [0,0,0,0],[0,0,50],[30,0,0,0,0], "res://EncounterOptionBattleBackground.png"]
+var encounterOption5 = ["Beefy rewards", "+40 attack damage from this encounter. Enemies have 20% more HP and damage.", [0,0,0,0],[20,20,0],[0,40,0,0,0], "res://EncounterOptionBattleBackground.png"]
+var encounterOption6 = ["Man up", "-10 Armour. Enemies have +10% HP.", [0,0,-10,0],[10,0,0],[0,0,0,0,0], "res://EncounterOptionBattleBackground.png"]
+
+
+
+var encounterOptions=[encounterOption1,encounterOption2,encounterOption3,encounterOption4,encounterOption5,encounterOption6]
 var PresentOptions=[]
 
 var NumberOfCurrentlyShownActions
@@ -41,7 +50,7 @@ var NumberOfCurrentlyShownActions
 var PlayerModifiers=[0,0,0,0]
 
 #[health,damage]
-var EnemyModifiers=[0,0]
+var EnemyModifiers=[0,0,0]
 #MODIFIERS###################
 
 
@@ -135,13 +144,14 @@ var skillEffects=[  [10,0,0,0,0,0,0],
 					[0,0,0,0,15,0,0],
 					[0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0],
+					[0,0,0,0,0,0,0],
 					[0,0,0,0,0,0,0]
 ]
 
 
 func InitializeSkills():
 	ActiveSkills = []
-	for n in 74:	
+	for n in 75:	
 		ActiveSkills.append(0)
 	print(ActiveSkills.size())
 

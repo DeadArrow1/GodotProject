@@ -194,7 +194,7 @@ func _on_hit_box_hit_taken(value):
 			position += Vector2(20, 0)
 	#else:
 	if(value>0):
-		Global.health -= (value* ((100-Global.armor)*0.01))
+		Global.health -= (value* ((100-(Global.armor+Global.PlayerModifiers[2]))*0.01))
 		health_changed.emit(Global.health)
 		
 	if(Global.health <=0):

@@ -129,18 +129,6 @@ states/Reset/node = SubResource("AnimationNodeBlendSpace2D_xxd6k")
 states/Reset/position = Vector2(345, 45)
 transitions = ["Start", "Reset", SubResource("AnimationNodeStateMachineTransition_o64iy"), "Reset", "HPChange", SubResource("AnimationNodeStateMachineTransition_87feq"), "HPChange", "Reset", SubResource("AnimationNodeStateMachineTransition_66mau")]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0wsrv"]
-animation = &"levelUpButtonShine"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kwjwd"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tvibg"]
-states/Start/position = Vector2(164, 95)
-states/levelUpButtonShine/node = SubResource("AnimationNodeAnimation_0wsrv")
-states/levelUpButtonShine/position = Vector2(349, 95)
-transitions = ["Start", "levelUpButtonShine", SubResource("AnimationNodeStateMachineTransition_kwjwd")]
-
 [sub_resource type="Animation" id="Animation_pwosd"]
 length = 0.001
 tracks/0/type = "value"
@@ -177,6 +165,18 @@ _data = {
 "RESET": SubResource("Animation_pwosd"),
 "levelUpButtonShine": SubResource("Animation_i60ds")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0wsrv"]
+animation = &"levelUpButtonShine"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kwjwd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tvibg"]
+states/Start/position = Vector2(164, 95)
+states/levelUpButtonShine/node = SubResource("AnimationNodeAnimation_0wsrv")
+states/levelUpButtonShine/position = Vector2(349, 95)
+transitions = ["Start", "levelUpButtonShine", SubResource("AnimationNodeStateMachineTransition_kwjwd")]
 
 [node name="Interface" type="Control"]
 process_mode = 3
@@ -263,6 +263,51 @@ autowrap_mode = 0
 [node name="LevelValue" type="RichTextLabel" parent="ColorRect2/GridContainer"]
 layout_mode = 2
 theme_override_colors/selection_color = Color(0, 0, 0, 1)
+text = "0
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 2
+offset_left = 1168.0
+offset_top = 26.0
+offset_right = 1352.0
+offset_bottom = 161.0
+color = Color(0, 0, 0, 0.607843)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -64.5
+offset_right = 72.5
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="lblArenaLevel" type="RichTextLabel" parent="ColorRect3/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+text = "ARENA LEVEL
+"
+fit_content = true
+autowrap_mode = 0
+
+[node name="lblArenaLevelNumber" type="RichTextLabel" parent="ColorRect3/GridContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 text = "0
 "
 fit_content = true
@@ -361,6 +406,9 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="ColorRect"]
 active = false
 root_node = NodePath("../../btnSkillPoint/AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_i4fh3")
+}
 tree_root = SubResource("AnimationNodeStateMachine_1ce20")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/HPChanged = false
@@ -377,6 +425,7 @@ offset_bottom = 30.0
 text = "Press F to interact"
 
 [node name="btnSkillPoint" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 306.0
 offset_top = 9.0
@@ -387,6 +436,9 @@ theme_override_font_sizes/font_size = 20
 text = "+"
 
 [node name="AnimationTree" type="AnimationTree" parent="btnSkillPoint"]
+libraries = {
+"": SubResource("AnimationLibrary_27rjj")
+}
 tree_root = SubResource("AnimationNodeStateMachine_tvibg")
 anim_player = NodePath("../AnimationPlayer")
 
