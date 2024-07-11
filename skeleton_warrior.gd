@@ -26,7 +26,7 @@ signal health_changed
 
 var direction : Vector2 = Vector2.ZERO
 
-var health = 200.0 + 10 * Global.arenaLevel
+var healthSkeleton = 200.0 + 10 * Global.arenaLevel
 var XP_yield = 100 + 5 * Global.arenaLevel
 var damage = 10 + 5 * Global.arenaLevel
 
@@ -37,12 +37,12 @@ func GiveXP():
 
 func _ready():
 	damage = damage + damage * Global.EnemyModifiers[1]*0.01
-	health = health + health * Global.EnemyModifiers[0]*0.01
+	healthSkeleton = healthSkeleton + healthSkeleton * Global.EnemyModifiers[0]*0.01
 	
-	%ProgressBar.max_value=health
+	%ProgressBar.max_value=healthSkeleton
 	animation_tree.active=true
 	animation_tree2.active=true
-	health_changed.emit(health)
+	health_changed.emit(healthSkeleton)
 
 	$SkeletonTexture/AttackHit/AttackArea.set_deferred("disabled", true)
 	$SkeletonTexture/ParryWindow/ParryShape.set_deferred("disabled", true)
@@ -67,7 +67,7 @@ func _physics_process(delta):
 	if(AggroAcquired || unlimited_aggro):
 		direction = global_position.direction_to(player.global_position)
 	
-	%ProgressBar.value = health
+	%ProgressBar.value = healthSkeleton
 	if(!isAttacking and animation_tree["parameters/conditions/isHit"] == false):
 	
 		var left
@@ -151,6 +151,12 @@ func _on_hitbox_body_hit_taken(value):
 	
 	dmgTakenRecord-=value
 	
+	if(Global.ActiveSkills[21]==1):
+		if(Global.health<Global.maxHealth):	
+			var lifestealAmmount=Global.ActiveSkills[21]*10 + Global.ActiveSkills[29]*5+Global.ActiveSkills[35]*5+Global.ActiveSkills[43]*10	
+			Global.health=Global.health+lifestealAmmount
+			Global._on_player_health_changed(Global.health)
+	
 	%LabelPositionMarker/HealthChangeLabel.text=str(-dmgTakenRecord)
 	animation_tree2["parameters/conditions/damageTaken"] = true
 	animation_tree2.get("parameters/playback").start("HPChange",true)
@@ -161,8 +167,8 @@ func _on_hitbox_body_hit_taken(value):
 	animation_tree["parameters/conditions/isIdle"] = false 
 	animation_tree["parameters/conditions/isMoving"] = false
 	
-	health -= value
-	if health <=0:
+	healthSkeleton -= value
+	if healthSkeleton <=0:
 		Global.enemiesCount=Global.enemiesCount-1
 		queue_free()
 		const corpse = preload("res://dead_skeleton.tscn")

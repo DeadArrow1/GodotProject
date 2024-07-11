@@ -461,34 +461,6 @@ position = Vector2(627.919, 1697.58)
 points = PackedVector2Array(-102.919, 31.4243, -55.919, -64.58)
 default_color = Color(0, 0, 0, 1)
 
-[node name="Button4" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
-layout_mode = 0
-offset_left = 1843.0
-offset_top = 1923.0
-offset_right = 1927.0
-offset_bottom = 1997.0
-
-[node name="Button3" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 1923.0
-offset_right = 87.0
-offset_bottom = 1997.0
-
-[node name="Button2" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
-layout_mode = 0
-offset_left = 1843.0
-offset_top = 3.0
-offset_right = 1927.0
-offset_bottom = 77.0
-
-[node name="Button" type="Button" parent="VBoxContainer/ScrollContainer/Control"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 87.0
-offset_bottom = 77.0
-
 [node name="Talent0" type="TextureButton" parent="VBoxContainer/ScrollContainer/Control"]
 modulate = Color(1, 1, 1, 0.996078)
 layout_mode = 0
@@ -1301,9 +1273,9 @@ offset_left = 1700.0
 offset_top = 1500.0
 offset_right = 1775.0
 offset_bottom = 1575.0
-tooltip_text = "Bleed 
+tooltip_text = "Lifesteal 
 
-Note: Hits to an enemy makes them loose HP equal to 10% of the damage dealt."
+Heal 10 HP for every hit on every enemy"
 toggle_mode = true
 texture_normal = ExtResource("12_ehbkk")
 texture_pressed = ExtResource("13_fn5b6")
@@ -1316,7 +1288,7 @@ offset_left = 1815.0
 offset_top = 1160.0
 offset_right = 1915.0
 offset_bottom = 1260.0
-tooltip_text = "Enemy bleeds for an additional 10%."
+tooltip_text = "Heal for additional 10 HP"
 toggle_mode = true
 texture_normal = ExtResource("12_ehbkk")
 texture_pressed = ExtResource("13_fn5b6")
@@ -1329,7 +1301,7 @@ offset_left = 1770.0
 offset_top = 1405.0
 offset_right = 1820.0
 offset_bottom = 1455.0
-tooltip_text = "Enemy bleeds for an additional 5%."
+tooltip_text = "Heal for additional 5 HP"
 toggle_mode = true
 texture_normal = ExtResource("12_ehbkk")
 texture_pressed = ExtResource("13_fn5b6")
@@ -1342,7 +1314,7 @@ offset_left = 1800.0
 offset_top = 1310.0
 offset_right = 1850.0
 offset_bottom = 1360.0
-tooltip_text = "Enemy bleeds for an additional 5%."
+tooltip_text = "Heal for additional 5 HP"
 toggle_mode = true
 texture_normal = ExtResource("12_ehbkk")
 texture_pressed = ExtResource("13_fn5b6")
@@ -1496,10 +1468,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -25.0
-offset_right = 200.0
-offset_bottom = 25.0
+offset_left = -183.0
+offset_top = -1029.0
+offset_right = 217.0
+offset_bottom = -979.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.235294, 0.235294, 0.235294, 1)
@@ -1525,10 +1497,9 @@ clip_contents = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 anchors_preset = 0
-offset_left = -769.0
-offset_top = -1004.0
-offset_right = -557.0
-offset_bottom = -833.0
+offset_left = -786.0
+offset_right = -574.0
+offset_bottom = 171.0
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control/ColorRect/Control2"]
 layout_mode = 0
