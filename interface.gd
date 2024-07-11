@@ -84,6 +84,7 @@ func _on_encounter_start_area_show_use_prompt(boolvalue):
 func _on_btn_skill_point_pressed():
 	skill_tree = preload("res://skill_tree.tscn").instantiate()
 	add_child(skill_tree)
+	Global.isSkillTreeOpen=true
 	Global.pauseGame(true)
 
 

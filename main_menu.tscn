@@ -123,6 +123,7 @@ text = "Arena mode
 "
 
 [node name="StartButton2" type="Button" parent="CenterContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.835294, 0, 1)
@@ -149,11 +150,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r5hag")
 text = "Quit game"
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+visible = false
 position = Vector2(41.788, 305.165)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_qi4ch")
 
 [node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/VBoxContainer"]
+visible = false
 position = Vector2(597.788, 309.165)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_qi4ch")

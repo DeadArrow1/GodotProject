@@ -2,6 +2,9 @@ extends Control
 
 	
 func _ready():
+	Global.isSkillTreeOpen=false
+	Global.enemiesCount=-1
+	
 	$CenterContainer/VBoxContainer/StartButton.pressed.connect(self.start_button_pressed)
 	$CenterContainer/VBoxContainer/QuitGameButton.pressed.connect(self.quit_button_pressed)
 	

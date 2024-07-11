@@ -168,7 +168,7 @@ func UpdateXP(value):
 		Global.skillPointCount=Global.skillPointCount+1
 		level_changed.emit(Global.level+1,Global.skillPointCount)
 		Global.XP=Global.XP-Global.XPlevelUP
-		Global.XPlevelUP=Global.XPlevelUP*2
+		Global.XPlevelUP=Global.XPlevelUP*1.5
 	XP_changed.emit(Global.XP,Global.XPlevelUP)
 	print(Global.XP)
 

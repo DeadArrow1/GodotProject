@@ -3,13 +3,24 @@ extends Node2D
 var XPGainEnabled=true
 
 func _process(delta):
-	if Input.is_action_just_pressed("PauseGame"):
+	if Input.is_action_just_pressed("PauseGame") and Global.isSkillTreeOpen==false:
 		var pauseMenu = preload("res://pause_menu.tscn").instantiate()
 		$InterfaceLayer.add_child(pauseMenu)
 		Global.pauseGame(true)
+	
+	if(Global.enemiesCount==0):
+		GiveEncounterRewards()
+		Global.enemiesCount=-1
+		Global.RecalculateStats()
 		
 
 func _ready():
+	
+	Global.PlayerModifiers=[0,0,0,0]
+	Global.EnemyModifiers=[0,0,0]
+	Global.PlayerRewards=[0,0,0,0,0]
+	
+	Global.enemiesCount=-1
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 	Global.PresentOptions=[]
 	Global.encounterStarted=false
@@ -38,11 +49,19 @@ func spawn_mob():
 func begin_encounter():
 	$InterfaceLayer/Interface.ShowUsePrompt(false)
 	Global.encounterStarted=true
+	Global.enemiesCount=4+Global.arenaLevel
 	
-	for n in 4+Global.arenaLevel:
+	
+	for n in Global.enemiesCount:
 		spawn_mob()
 
 func _on_child_entered_tree(node):
 	if(node.has_method("setAggro")):
 		node.setAggro(true)
+		
+func GiveEncounterRewards():
+	
+	for i in Global.PlayerRewardsAcquired.size():
+		Global.PlayerRewardsAcquired[i]=Global.PlayerRewardsAcquired[i]+Global.PlayerRewards[i]
+	
 	

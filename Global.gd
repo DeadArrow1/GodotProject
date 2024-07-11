@@ -14,7 +14,7 @@ var movementSpeed
 var arenaLevel=1
 
 var maxHealthBase=100
-var healthBase= 50
+var healthBase= 100
 var XPBase=0
 var XPlevelUPBase=100
 var armorBase=10
@@ -30,7 +30,7 @@ var movementSpeedBase=300
 #encounterOptions
 #encounter = [name,description,PlayerModifiers[health,damage,armor,XP],enemy modifiers[health,damage],rewards[Maxhealth,damage,armor,XP,gold],image]
 var encounterOption1 = ["Ser Hervis's wisdom", "+ 25% XP gain from this encounter", [0,0,0,25],[0,0,0],[0,0,0,0,0], "res://EncounterOptionXPBackgroundColorBook.png"]
-var encounterOption2 = ["Trial by combat", "+ 5 damage after this encounter, enemies deal 50% more damage", [0,0,0,0],[0,50],[0,5,0,0,0], "res://EncounterOptionBattleBackground.png"]
+var encounterOption2 = ["Trial by combat", "+ 5 damage after this encounter, enemies deal 50% more damage", [0,0,0,0],[0,50,0],[0,5,0,0,0], "res://EncounterOptionBattleBackground.png"]
 var encounterOption3 = ["The higher the better", "Enemies have 25% more HP. +30% XP gain from this encounter.", [0,0,0,30],[25,0,0],[0,0,0,0,0], "res://EncounterOptionXPBackgroundColorBook.png"]
 
 var encounterOption4 = ["Run for life", "+30 HP from this encounter. Enemies move 50% faster.", [0,0,0,0],[0,0,50],[30,0,0,0,0], "res://EncounterOptionBattleBackground.png"]
@@ -52,6 +52,14 @@ var PlayerModifiers=[0,0,0,0]
 #[health,damage]
 var EnemyModifiers=[0,0,0]
 #MODIFIERS###################
+#REWARDS
+
+#rewards[Maxhealth,damage,armor,XP,gold]
+var PlayerRewardsAcquired=[0,0,0,0,0]
+
+var PlayerRewards=[0,0,0,0,0]
+#REWARDS END
+
 
 
 var encounterStarted
@@ -62,6 +70,9 @@ var ActiveSkills
 #SKILLS
 
 #HP,HP%,ARMOR,ARMOR%,ATTACKDMG,ATTACKDMG%,MOVEMENTSPEED%
+var isSkillTreeOpen
+var enemiesCount
+
 
 var skillEffects=[  [10,0,0,0,0,0,0],
 					[0,0,20,0,0,0,0],
@@ -243,6 +254,7 @@ signal start_encounter
 func editModifiers(option):
 	PlayerModifiers=option[2]
 	EnemyModifiers=option[3]
+	PlayerRewards=option[4]
 	print("PlayerModifiers")
 	print(PlayerModifiers)
 	
@@ -254,6 +266,87 @@ func editModifiers(option):
 	
 	
 	
+##PORTED FUNCTIONS FROM SKILL TREE TO BE USABLE BY LELEL2
+func RecalculateStats():
+	RecalculateHP()
+	RecalculateArmor()
+	RecalculateDamage()
+	RecalculateSpeed()
+	
+func RecalculateHP():
+	var Skills = ActiveSkills
+	var playerMaxHP=maxHealthBase
+	var numberOfSkills=Skills.size()
+	
+	for skillNumber in numberOfSkills:
+		if(Skills[skillNumber]==1):
+			playerMaxHP=playerMaxHP+skillEffects[skillNumber][0]+ PlayerRewardsAcquired[0]
+			
+			
+	playerMaxHP=playerMaxHP+PlayerRewardsAcquired[0]
+	var BunusPercentage=0
+	for skillNumber in numberOfSkills:
+		
+		if(Skills[skillNumber]==1):
+			BunusPercentage=BunusPercentage+skillEffects[skillNumber][1]
+			
+	playerMaxHP=playerMaxHP + playerMaxHP * BunusPercentage *0.01
+	maxHealth=playerMaxHP
+	_on_player_max_health_changed(playerMaxHP)
+
+func RecalculateArmor():
+	var Skills = ActiveSkills
+	var playerArmor=armorBase
+	var numberOfSkills=Skills.size()
+	
+	for skillNumber in numberOfSkills:
+		if(Skills[skillNumber]==1):
+			playerArmor=playerArmor+skillEffects[skillNumber][2]+PlayerRewardsAcquired[2]
+			
+	playerArmor=playerArmor+PlayerRewardsAcquired[2]
+	var BunusPercentage=0
+	for skillNumber in numberOfSkills:
+		
+		if(Skills[skillNumber]==1):
+			BunusPercentage=BunusPercentage+skillEffects[skillNumber][3]
+			
+	playerArmor=playerArmor + playerArmor * BunusPercentage *0.01
+	armor=playerArmor
+	_on_player_armor_changed(playerArmor)
+	
+func RecalculateDamage():
+	var Skills = ActiveSkills
+	var playerDamage=attackBase
+	var numberOfSkills=Skills.size()
+	
+	for skillNumber in numberOfSkills:
+		if(Skills[skillNumber]==1):
+			playerDamage=playerDamage+skillEffects[skillNumber][4]
+			
+	playerDamage = playerDamage + PlayerRewardsAcquired[1]
+	var BunusPercentage=0
+	for skillNumber in numberOfSkills:
+		
+		if(Skills[skillNumber]==1):
+			BunusPercentage=BunusPercentage+skillEffects[skillNumber][5]
+			
+	playerDamage=playerDamage + playerDamage * BunusPercentage *0.01
+	attack=playerDamage
+	_on_player_attack_changed(playerDamage)
+	
+func RecalculateSpeed():
+	var Skills = ActiveSkills
+	var playerSpeed=movementSpeedBase
+	var numberOfSkills=Skills.size()
+	
+	var BunusPercentage=0
+	for skillNumber in numberOfSkills:
+		
+		if(Skills[skillNumber]==1):
+			BunusPercentage=BunusPercentage+skillEffects[skillNumber][6]
+			
+	playerSpeed=playerSpeed + playerSpeed * BunusPercentage *0.01
+	movementSpeed=playerSpeed
 	
 
 

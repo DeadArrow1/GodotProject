@@ -163,6 +163,7 @@ func _on_hitbox_body_hit_taken(value):
 	
 	health -= value
 	if health <=0:
+		Global.enemiesCount=Global.enemiesCount-1
 		queue_free()
 		const corpse = preload("res://dead_skeleton.tscn")
 		var newCorpse = corpse.instantiate()

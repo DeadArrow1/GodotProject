@@ -3,7 +3,7 @@ extends Node2D
 var XPGainEnabled=true
 
 func _process(delta):
-	if Input.is_action_just_pressed("PauseGame"):
+	if Input.is_action_just_pressed("PauseGame") and Global.isSkillTreeOpen==false:
 		var pauseMenu = preload("res://pause_menu.tscn").instantiate()
 		$InterfaceLayer.add_child(pauseMenu)
 		Global.pauseGame(true)
