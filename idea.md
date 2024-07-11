@@ -2,7 +2,7 @@ Summary:
 Rogue-like game where a knight fights endless hordes of skeletons which are stronger after every encounter
 
 Detailed Summary:
-Player controls a knight which embarked on a quest that cannot be done, defeat all undead in the castle before him. He can only hope he can defeat as many as possible.
+Player controls a knight which embarked on a quest that cannot be done, defeat all undead in the castle in front of him. He can only hope he can defeat as many as possible.
 His tools are his sword and getting more experience to improve his battle prowess.
 
 Pillars of Design:
