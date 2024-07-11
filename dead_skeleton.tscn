@@ -454,7 +454,7 @@ _data = {
 }
 
 [node name="DeadSkeleton" type="Node2D"]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(-0.1, 0.1)
 script = ExtResource("1_8j0s6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

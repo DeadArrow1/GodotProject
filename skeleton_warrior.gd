@@ -48,7 +48,9 @@ func _ready():
 	$SkeletonTexture/ParryWindow/ParryShape.set_deferred("disabled", true)
 	
 func _process(delta):
-	update_animation_parameters()
+	if(animation_tree["parameters/conditions/Stunned"] == false):
+		$StunVisual.visible=false
+		update_animation_parameters()
 	
 func _physics_process(delta):
 	
@@ -161,11 +163,12 @@ func _on_hitbox_body_hit_taken(value):
 	animation_tree2["parameters/conditions/damageTaken"] = true
 	animation_tree2.get("parameters/playback").start("HPChange",true)
 	
-	animation_tree["parameters/conditions/isHit"] = true
-	animation_tree.get("parameters/playback").start("hitrecieved",true)
-	animation_tree["parameters/conditions/isAttacking"] = false 
-	animation_tree["parameters/conditions/isIdle"] = false 
-	animation_tree["parameters/conditions/isMoving"] = false
+	if(animation_tree["parameters/conditions/Stunned"] == false):
+		animation_tree["parameters/conditions/isHit"] = true
+		animation_tree.get("parameters/playback").start("hitrecieved",true)
+		animation_tree["parameters/conditions/isAttacking"] = false 
+		animation_tree["parameters/conditions/isIdle"] = false 
+		animation_tree["parameters/conditions/isMoving"] = false
 	
 	healthSkeleton -= value
 	if healthSkeleton <=0:
@@ -175,6 +178,14 @@ func _on_hitbox_body_hit_taken(value):
 		var newCorpse = corpse.instantiate()
 		get_parent().add_child(newCorpse)
 		newCorpse.global_position = global_position
+		
+		var bodyscale=$SkeletonTexture.scale
+		var entityScale=scale.y
+		
+		if(entityScale<0):
+			bodyscale.x=bodyscale.x*(-1)
+		
+		newCorpse.scale=bodyscale
 
 
 func _on_attack_detection_body_entered(body):
@@ -202,5 +213,17 @@ func _on_parry_window_get_stun():
 	else:
 		position += Vector2(100, 0)
 		
+	if(Global.ActiveSkills[24]==1):
+		var stunLenght=Global.ActiveSkills[24]*0.25 + Global.ActiveSkills[32]*0.25 + Global.ActiveSkills[38]*0.5
+		
+		animation_tree["parameters/conditions/isIdle"] = true
+		animation_tree["parameters/conditions/isMoving"] = false
+		animation_tree["parameters/stunned/0/TimeScale/scale"]=1/stunLenght
+		setStunnedParameter(true)
+	
+	
+func setStunnedParameter(boolvalue):
+	animation_tree["parameters/conditions/Stunned"] = boolvalue
+
 func setIsHitParameter(boolvalue):
 	animation_tree["parameters/conditions/isHit"] = boolvalue

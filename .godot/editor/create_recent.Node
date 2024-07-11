@@ -1,14 +1,14 @@
+Sprite2D
+Node2D
+Node
 HBoxContainer
 Label
 ColorRect
 Control
 AnimationPlayer
-Sprite2D
 Timer
 AspectRatioContainer
 CenterContainer
 Container
 AudioStreamPlayer2D
-Node2D
 AnimationTree
-StaticBody2D
