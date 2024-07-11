@@ -1151,9 +1151,9 @@ offset_left = 435.0
 offset_top = 165.0
 offset_right = 560.0
 offset_bottom = 290.0
-tooltip_text = "Dash
+tooltip_text = "Athletic spirit
 
-Note: You move swiftly to a new location. Has 5 seconds internal cooldown."
++20% movement speed,+500 HP"
 toggle_mode = true
 texture_normal = ExtResource("24_mm2lo")
 texture_pressed = ExtResource("25_s7pam")
@@ -1168,7 +1168,7 @@ offset_right = 1015.0
 offset_bottom = 290.0
 tooltip_text = "Dodge
 
-Note: You have 25% chance to nulify incoming attack hit."
+You have 25% chance to nulify incoming attack hit."
 toggle_mode = true
 texture_normal = ExtResource("27_6tmcp")
 texture_pressed = ExtResource("28_7s3e6")
@@ -1181,9 +1181,9 @@ offset_left = 1350.0
 offset_top = 165.0
 offset_right = 1475.0
 offset_bottom = 290.0
-tooltip_text = "Whirlwind
+tooltip_text = "Goliath strength
 
-Note: Damages all enemies in area around you. Has 10 seconds internal cooldowm."
++500 attack damage"
 toggle_mode = true
 texture_normal = ExtResource("30_u4y5j")
 texture_pressed = ExtResource("31_4lmkq")
@@ -1355,7 +1355,7 @@ offset_left = 645.0
 offset_top = 1500.0
 offset_right = 720.0
 offset_bottom = 1575.0
-tooltip_text = "Parry
+tooltip_text = "Use E to parry enemy attacks right before they land.
 
 Note: Parry knockbacks enemies. You take no damage from parried attacks."
 toggle_mode = true
@@ -1409,9 +1409,9 @@ offset_left = 1190.0
 offset_top = 1500.0
 offset_right = 1265.0
 offset_bottom = 1575.0
-tooltip_text = "Block
+tooltip_text = "Use Q to Block
 
-Note: Block negates 80% of the incoming enemy hit damage."
+Note: Block negates 20% of the incoming enemy hit damage."
 toggle_mode = true
 texture_normal = ExtResource("15_gd4ug")
 texture_pressed = ExtResource("16_8x7bn")
@@ -1424,7 +1424,7 @@ offset_left = 1176.0
 offset_top = 1160.0
 offset_right = 1276.0
 offset_bottom = 1260.0
-tooltip_text = "Block negates all damage from blocked hit. Recover +20 HP on block instantly."
+tooltip_text = "Block negates additional +10% of the incoming damage."
 toggle_mode = true
 texture_normal = ExtResource("15_gd4ug")
 texture_pressed = ExtResource("16_8x7bn")

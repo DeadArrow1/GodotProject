@@ -10,8 +10,10 @@ func _process(delta):
 	
 	if(Global.enemiesCount==0):
 		GiveEncounterRewards()
+		
 		Global.enemiesCount=-1
 		Global.RecalculateStats()
+		Global.PlayerRewards=[0,0,0,0,0]
 		
 
 func _ready():

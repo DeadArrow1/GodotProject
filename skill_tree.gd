@@ -1,9 +1,10 @@
 extends Control
 
-var availableSkillPoints=Global.skillPointCount
 
+var availableSkillPoints
 
 func _ready():
+	availableSkillPoints=Global.skillPointCount
 	var Skills = Global.ActiveSkills
 	
 	var numberOfSkills=Skills.size()
@@ -43,6 +44,11 @@ func _on_btn_confirm_pressed():
 	Global.isSkillTreeOpen=false
 	SaveSkillpoints()
 	Global.RecalculateStats()
+	#Global.skillPointCount=availableSkillPoints
+	Global.UnspentSkillpoints=availableSkillPoints
+	Global.toggleSkillPointButton()
+	
+	
 	Global.pauseGame(false)
 	
 	

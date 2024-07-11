@@ -23,7 +23,7 @@ var attackBase=30
 var skillPointCountBase=0
 
 var movementSpeedBase=300
-
+var UnspentSkillpoints=0
 
 
 
@@ -154,9 +154,9 @@ var skillEffects=[  [10,0,0,0,0,0,0],
 					#SKILLS 61-70
 					[0,0,0,0,15,0,0],
 					[0,0,0,0,0,0,0],
+					[500,0,0,0,0,0,20],
 					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0],
-					[0,0,0,0,0,0,0]
+					[0,0,0,0,500,0,0]
 ]
 
 
@@ -226,20 +226,30 @@ func _on_player_attack_changed(value):
 	Interface.UpdateAttack(value)
 
 
-func _on_player_level_changed(value,skillPointCount):
+func _on_player_level_changed(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
 	Interface.UpdateLevel(value)
 	
-	Interface.ShowBntSkillPoint(true,skillPointCount)
-
+	if(Global.UnspentSkillpoints>0):
+		Interface.ShowBntSkillPoint(true)
+	else:
+		Interface.ShowBntSkillPoint(false)
+		
+func toggleSkillPointButton():
+	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
+	
+	if(Global.UnspentSkillpoints>0):
+		Interface.ShowBntSkillPoint(true)
+	else:
+		Interface.ShowBntSkillPoint(false)
 
 func _on_player_max_health_changed(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
 	Interface.UpdateMaxHealth(value)
 
-func _on_player_xp_changed(XP,XPlevelUP):
+func _on_player_xp_changed():
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
-	Interface.UpdateXPBar(XP,XPlevelUP)
+	Interface.UpdateXPBar()
 	
 func actionPossible(value):
 	var Interface = get_node("/root/"+current_scene.name+"/InterfaceLayer/Interface")
@@ -280,7 +290,7 @@ func RecalculateHP():
 	
 	for skillNumber in numberOfSkills:
 		if(Skills[skillNumber]==1):
-			playerMaxHP=playerMaxHP+skillEffects[skillNumber][0]+ PlayerRewardsAcquired[0]
+			playerMaxHP=playerMaxHP+skillEffects[skillNumber][0]
 			
 			
 	playerMaxHP=playerMaxHP+PlayerRewardsAcquired[0]
@@ -301,7 +311,7 @@ func RecalculateArmor():
 	
 	for skillNumber in numberOfSkills:
 		if(Skills[skillNumber]==1):
-			playerArmor=playerArmor+skillEffects[skillNumber][2]+PlayerRewardsAcquired[2]
+			playerArmor=playerArmor+skillEffects[skillNumber][2]
 			
 	playerArmor=playerArmor+PlayerRewardsAcquired[2]
 	var BunusPercentage=0

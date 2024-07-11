@@ -38,11 +38,11 @@ func _ready():
 	animation_tree.active=true
 	maxHealth_changed.emit(Global.maxHealth)
 	health_changed.emit(Global.health)
-	XP_changed.emit(Global.XP,Global.XPlevelUP)
+	XP_changed.emit()
 	
 	attack_changed.emit(Global.attack)
 	armor_changed.emit(Global.armor)
-	level_changed.emit(Global.level,Global.skillPointCount)
+	level_changed.emit(Global.level)
 	
 	
 	
@@ -166,10 +166,12 @@ func UpdateXP(value):
 	
 	if(Global.XP>=Global.XPlevelUP):
 		Global.skillPointCount=Global.skillPointCount+1
-		level_changed.emit(Global.level+1,Global.skillPointCount)
+		Global.UnspentSkillpoints=Global.UnspentSkillpoints+1
+		Global.level=Global.level+1
+		level_changed.emit(Global.level)
 		Global.XP=Global.XP-Global.XPlevelUP
-		Global.XPlevelUP=Global.XPlevelUP*1.5
-	XP_changed.emit(Global.XP,Global.XPlevelUP)
+		Global.XPlevelUP=Global.XPlevelUP*2
+	XP_changed.emit()
 	print(Global.XP)
 
 
@@ -186,15 +188,30 @@ func _on_hit_box_hit_taken(value):
 	var blockDamageReduction=0
 	
 	if(isBlocking==true):
-		value = value - value *  Global.ActiveSkills[19]*0.8+ Global.ActiveSkills[27]*0.05+ Global.ActiveSkills[33]*0.05 +  Global.ActiveSkills[41]*0.1 
+		value = value - value *  Global.ActiveSkills[19]*0.2+ Global.ActiveSkills[27]*0.05+ Global.ActiveSkills[33]*0.05 +  Global.ActiveSkills[41]*0.1 
 		
 		if(lastDirectionIsRight):
 			position += Vector2(-20, 0)
 		else:
 			position += Vector2(20, 0)
 	#else:
+	
+	if(Global.ActiveSkills[73]==1):
+		var rng = RandomNumberGenerator.new()
+		var dodgeChance=rng.randf_range(0, 100)
+		if(dodgeChance<26):
+			value=0
 	if(value>0):
-		Global.health -= (value* ((100-(Global.armor+Global.PlayerModifiers[2]))*0.01))
+		var rawDamage=value
+		var percentDecrease=rawDamage*0.1
+		var linearDecrease=rawDamage-Global.armor+Global.PlayerModifiers[2]
+		
+		if(rawDamage>(Global.armor+Global.PlayerModifiers[2]) and percentDecrease < linearDecrease):
+			value=linearDecrease
+		else:
+			value=percentDecrease
+		
+		Global.health -= value
 		health_changed.emit(Global.health)
 		
 	if(Global.health <=0):
@@ -214,11 +231,12 @@ func setIsAttackingParameter(boolvalue):
 	animation_tree["parameters/conditions/isAttacking"]=boolvalue
 	
 func TalentHealRegen():
-	if(Global.health<Global.maxHealth):	
-		var regenAmountFlat=(Global.ActiveSkills[15]*5+Global.ActiveSkills[22]*3+Global.ActiveSkills[30]*3+Global.ActiveSkills[36]*10)
-		var regenTotal=regenAmountFlat+regenAmountFlat*Global.ActiveSkills[36]*0.3
-		Global.health+=regenTotal
-		health_changed.emit(Global.health)
+	if(Global.ActiveSkills[15]==1):
+		if(Global.health<Global.maxHealth):	
+			var regenAmountFlat=(Global.ActiveSkills[15]*5+Global.ActiveSkills[22]*3+Global.ActiveSkills[30]*3+Global.ActiveSkills[36]*10)
+			var regenTotal=regenAmountFlat+regenAmountFlat*Global.ActiveSkills[36]*0.3
+			Global.health+=regenTotal
+			health_changed.emit(Global.health)
 	
 func playAttackSound(number):
 	if(number==1):

@@ -22,6 +22,7 @@ func start_button_pressed():
 	Global.attack=Global.attackBase
 	Global.skillPointCount=Global.skillPointCountBase
 	Global.movementSpeed=Global.movementSpeedBase
+	Global.UnspentSkillpoints = 0
 	
 	
 	

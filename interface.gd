@@ -30,12 +30,12 @@ func UpdateHealthBar(value):
 		
 	get_node("ColorRect/AnimationTree")["parameters/conditions/HPChanged"] = true
 	
-func UpdateXPBar(XPvalue,XPlevelUPvalue):
-	get_node("ColorRect/BoxContainer/ExperienceBar").max_value=XPlevelUPvalue
-	get_node("ColorRect/BoxContainer/ExperienceBar").set_value(XPvalue)
+func UpdateXPBar():
+	get_node("ColorRect/BoxContainer/ExperienceBar").max_value=Global.XPlevelUP
+	get_node("ColorRect/BoxContainer/ExperienceBar").set_value(Global.XP)
 	
 	
-	get_node("ColorRect/BoxContainer/ExperienceBar/ExperienceNumbers").text=str(XPvalue)+"/"+str(XPlevelUPvalue)
+	get_node("ColorRect/BoxContainer/ExperienceBar/ExperienceNumbers").text=str(Global.XP)+"/"+str(Global.XPlevelUP)
 	
 func ShowUsePrompt(boolValue):
 	get_node("UsePrompt").visible=boolValue
@@ -54,10 +54,10 @@ func UpdateArmor(value):
 func UpdateLevel(value):
 	get_node("ColorRect2/GridContainer/LevelValue").text=str(value)
 	
-func ShowBntSkillPoint(show,skillPointCount):
-	if(skillPointCount>0):
+func ShowBntSkillPoint(show):
 		get_node("btnSkillPoint").visible=show
-		get_node("btnSkillPoint/lblFreeSkillPointCount").text=str(skillPointCount)
+		get_node("btnSkillPoint/lblFreeSkillPointCount").text=str(Global.UnspentSkillpoints)
+	
 
 func setHPChangedParameter(boolvalue):
 	get_node("ColorRect/AnimationTree")["parameters/conditions/HPChanged"] = boolvalue

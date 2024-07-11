@@ -27,7 +27,7 @@ signal health_changed
 var direction : Vector2 = Vector2.ZERO
 
 var health = 200.0 + 10 * Global.arenaLevel
-var XP_yield = 20 + 5 * Global.arenaLevel
+var XP_yield = 100 + 5 * Global.arenaLevel
 var damage = 10 + 5 * Global.arenaLevel
 
 signal EnemySlain
