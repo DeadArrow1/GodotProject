@@ -1,10 +1,29 @@
-1. week
-   Basic knight texture and animations plus movement
+Plan:
+week 1
+Create basic enviroment and player
+
+week 2
+Implementation of enemies and interactable objects
+
+week 3
+Create combat system
+Create talent tree
+
+week 4
+Implement talent tree functionality
+Game loop
+Polishing
+
+
+Actual schedule:
+
+week 1
+1. Basic knight texture and animations plus movement
 
 2. Create basic enviroment
 
 
-2. week
+week 2
 3. Add interactable items
 
 4. Add basic enemy entity
@@ -18,7 +37,7 @@
 8. Add functionality to UI
 
 
-3. week
+week 3
 9. Create talent tree plus access to talent tree
 
 10. Add game loop
