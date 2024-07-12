@@ -1,15 +1,19 @@
 Plan:
+
 week 1
 Create basic enviroment and player
 
 week 2
+
 Implementation of enemies and interactable objects
 
 week 3
+
 Create combat system
 Create talent tree
 
 week 4
+
 Implement talent tree functionality
 Game loop
 Polishing
