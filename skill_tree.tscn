@@ -79,6 +79,7 @@ grow_vertical = 2
 clip_contents = false
 custom_minimum_size = Vector2(1900, 1000)
 layout_mode = 2
+scroll_vertical = 1000
 horizontal_scroll_mode = 0
 
 [node name="Control" type="Control" parent="VBoxContainer/ScrollContainer"]

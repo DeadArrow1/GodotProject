@@ -4,6 +4,8 @@ extends Control
 var availableSkillPoints
 
 func _ready():
+	
+	$VBoxContainer/ScrollContainer.set_deferred("scroll_vertical",1000)
 	availableSkillPoints=Global.skillPointCount
 	var Skills = Global.ActiveSkills
 	
