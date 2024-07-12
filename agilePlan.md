@@ -57,3 +57,7 @@ week 3
 12b Add pause menu
 
 14. Implement talent tree functionality
+
+week 4
+
+Polishing
