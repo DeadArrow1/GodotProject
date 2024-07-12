@@ -1,6 +1,7 @@
 Plan:
 
 week 1
+
 Create basic enviroment and player
 
 week 2
@@ -22,12 +23,14 @@ Polishing
 Actual schedule:
 
 week 1
+
 1. Basic knight texture and animations plus movement
 
 2. Create basic enviroment
 
 
 week 2
+
 3. Add interactable items
 
 4. Add basic enemy entity
@@ -42,6 +45,7 @@ week 2
 
 
 week 3
+
 9. Create talent tree plus access to talent tree
 
 10. Add game loop
